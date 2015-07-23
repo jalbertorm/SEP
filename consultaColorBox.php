@@ -1,5 +1,6 @@
 <?php
     $id=$_GET["id"];
+    include_once("sources/funciones.php");
     include_once("sources/Query.inc");
     $query=new Query();
     

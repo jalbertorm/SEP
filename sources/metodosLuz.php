@@ -16,9 +16,8 @@
 		echo "<th>ASUNTO</th>";
 		echo "<th>FECHA</th>";
                 
-              
+                /*
 		echo "<th>INFO COMPLETA</th>";
-		  /*
 		echo "<th>RE-ENVIAR</th>";
                  */
                 
@@ -34,7 +33,7 @@
 				echo "<td>$regC->nOficio</td>";
 				echo "<td>$regC->asunto</td>";
 				echo "<td>$regC->fecha</td>";
-				echo "<td>$regC->info_completa</td>";
+				/*echo "<td>$regC->info_completa</td>";*/
 				/*echo "<td>$regC->re_enviar</td>";*/
                                 
                                 
