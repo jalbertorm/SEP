@@ -90,7 +90,7 @@
                                         <ul class="menu">
                                             <li>
                                                 <a href="#">
-                                                    <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                                    <i class="fa fa-users text-aqua"></i> 5 new member
                                                 </a>
                                             </li>
                                         </ul>
@@ -373,231 +373,231 @@
                                     </div>
                                 </div>
                                 <div class="box-body">
-                                    
+
                                     <form action="guardarOficio.php" method="post">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <img src="images/oficioHeader.png" width="100%">
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p>
-                                                Oficio número SEP / DFSEPMEX / 
-                                                <input style="width: 40px" type="text">
-                                                /
-                                                <input style="width: 40px" type="text">
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p style="text-align: right">
-                                                Toluca, México.,
-                                                <input type="text">
-                                                .
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <select name="puesto" class="form-control" id="destinatario">
-                                                <option value="">Seleccione Dependencia</option>
-                                                <option value="SECRETARIO DE EDUCACIÓN DEL GOBIERNO DEL ESTADO DE MÉXICO">
-                                                    SECRETARIO DE EDUCACIÓN DEL GOBIERNO DEL ESTADO DE MÉXICO
-                                                </option>
-                                                <option value="REPRESENTANTE DE LA SUBSECRETARIA DE EDUCACIÓN MEDIA SUPERIOR EN EL ESTADO DE MÉXCO">
-                                                    REPRESENTANTE DE LA SUBSECRETARIA DE EDUCACIÓN MEDIA SUPERIOR EN EL ESTADO DE MÉXCO
-                                                </option>
-                                                <option value="SECRETARIO DE CULTURA Y DEPORTE DEL GOBIERNO DEL ESTADO DE MÉXICO">
-                                                    SECRETARIO DE CULTURA Y DEPORTE DEL GOBIERNO DEL ESTADO DE MÉXICO
-                                                </option>
-                                                <option value="DIRECTOR GENERAL DE LOS SERVICIOS EDUCATIVOS INTEGRADOS AL ESTADO DE MÉXICO">
-                                                    DIRECTOR GENERAL DE LOS SERVICIOS EDUCATIVOS INTEGRADOS AL ESTADO DE MÉXICO
-                                                </option>
-                                                <option value="otro">OTRO</option>
-                                            </select>
-                                            <p id="secEduca">
-                                                INGENIERO<br>
-                                                SIMÓN IVÁN VILLAR MARTÍNEZ<br>
-                                                SECRETARIO DE EDUCACIÓN DEL<br>
-                                                GOBIERNO DEL ESTADO DE MÉXICO<br>
-                                                PRESENTE
-                                            </p>
-                                            <p id="servEduca">
-                                                INGENIERO<br>
-                                                CARLOS AURIEL ESTÉVEZ HERRERA<br>
-                                                DIRECTOR GENERAL DE LOS SERVICIOS EDUCATIVOS<br>
-                                                INTEGRADOS AL ESTADO DE MÉXICO<br>
-                                                PRESENTE
-                                            </p>
-                                            <p id="secMSup">
-                                                DRA. CLAUDIA MAGDALENA RIOS PEÑA<br>
-                                                REPRESENTANTE DE LA SUBSECRETARIA<br>
-                                                DE EDUCACIÓN MEDIA SUPERIOR EN EL <br>
-                                                ESTADO DE MÉXICO<br>
-                                                PRESENTE
-                                            </p>
-                                            <p id="secCulDep">
-                                                LUZ COPIANDO<br>
-                                                REPRESENTANTE DE LA SUBSECRETARIA<br>
-                                                DE EDUCACIÓN MEDIA SUPERIOR EN EL <br>
-                                                ESTADO DE MÉXICO<br>
-                                                PRESENTE
-                                            </p>
-                                            <br>
-                                            <div id="otro">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Titulo">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="puesto" id="puesto" placeholder="Puesto">
-                                                </div>
-                                                PRESENTE
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <img src="images/oficioHeader.png" width="100%">
                                             </div>
                                         </div>
-                                    </div>
-                                    
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <select name="dirigido" class="form-control" id="redaccion">
-                                                <option value="">Seleccione Remitente</option>    
-                                                <option value="Anteponiendo un cordial saludo, me permito remitir a Usted,  petición formulada al Lic. Enrique Peña Nieto, Presidente Constitucional de los Estados Unidos  Mexicanos, enviada a esta Delegación por la Coordinación de atención Ciudadana de la Secretaría de Educación Pública Cual se detalla a continuación:">
-                                                    Lic. Enrique Peña Nieto
-                                                </option>
-                                                
-                                                <option value="Anteponiendo un cordial saludo, me permito remitir a Usted, petición formulada al Lic. Emilio Cuayffet Chemor, Secretario de Educación Pública, misma que se detalla a continuación:">
-                                                    Lic. Emilio Emilio Chuayffet Chemor
-                                                </option>
-                                            </select>
-                                            <p id="LicEnrique">
-                                                Anteponiendo un cordial saludo, me permito remitir a Usted,  petición formulada al Lic. Enrique<br>
-                                                Peña Nieto, Presidente Constitucional de los Estados Unidos  Mexicanos, enviada a esta<br>
-                                                Delegación por la Coordinación de atención Ciudadana de la Secretaría de Educación Pública, la<br>
-                                                Cual se detalla a continuación:<br>
-                                            </p>
-                                            <p id="LicEmilio">
-                                                Anteponiendo un cordial saludo, me permito remitir a Usted, petición formulada al Lic. Emilio<br>
-                                                Cuayffet Chemor, Secretario de Educación Pública, misma que se detalla a continuación:
-                                            </p>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p>
+                                                    Oficio número SEP / DFSEPMEX / 
+                                                    <input name="noOficio"  style="width: 40px" type="text">
+                                                    /
+                                                    <input style="width: 40px" type="text">
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    
-                                    
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <table border="0">
-                                                <tr>
-                                                    <td center >CIUDADANO</td>  
-                                                    <td center>ASUNTO</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><input style="width: 430px" type="text"></td>  
-                                                    <td><input style="width: 430px" type="text"></td>
-                                                </tr>
-                                            </table>                    
-                                        </div>  
-                                    </div>
-                                    
-                                    
-                                    
-                                    
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p>
-                                                Por lo anterior, solicito de no existir inconveniente, gire sus amables instrucciones al área<br> 
-                                                Correspondiente a fin de brindar la atención que proceda a dicho requerimiento, rogando<br> 
-                                                Respetuosamente sea tan gentil de enviar a esta Delegación el seguimiento del presente asunto.<br>
-                                            </p>                    
-                                        </div>  
-                                    </div>
-                                    
-                                    
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p>
-                                                Sin otra particular, me retiro a sus órdenes.<br>
-                                            </p>                    
-                                        </div>  
-                                    </div>
-                                    
-                                    
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p>
-                                                ATENTAMENTE<br>
-                                                SUFRAGIO EFECTIVO. NO RELECCIÓN<br>
-                                            </p>                    
-                                        </div>  
-                                    </div>
-                                    
-                                    
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p>
-                                                MTRO. GUILLERMO LEGORRETA MAETÍNEZ<br>
-                                                DELEGADO<br>
-                                            </p>                    
-                                        </div>  
-                                    </div>
-                                    
-                                   
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p>
-                                                C.C.P Lic. Rubén Jesús Lara León.-  Coordinador General de Delegaciones Federales de la Secretaria de Educación pública.- Presente.<br>
-                                                Lic. Miguel Salcedo Hernández.-   Coordinador General de Atención Ciudadano(a).-<input placeholder="Referencia" style="width: 150px" type="text"> 
 
-                                            </p>                    
-                                        </div>  
-                                    </div>
-                                    
-                                    
-                                    
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p>
-                                                Lic. Edgar Israel Gutiérrez Paredes.- Jefe del Departamento de Vinculación y Apoyo institucional de la coordinación General de Delegaciones Federales.- SEP
-                                                Folio: <input placeholder="Folio" style="width: 150px" type="text">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p style="text-align: right">
+                                                    Toluca, México.,
+                                                    <input type="text">
+                                                    .
+                                                </p>
+                                            </div>
+                                        </div>
 
-                                            </p>                    
-                                        </div>  
-                                    </div>
-                                    
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p>
-                                                C. <input placeholder="Ciudadano(a)" style="width: 150px" type="text"><br>
-                                                GLM/arll*
-                                            </p>
-                                        </div>  
-                                    </div>
-                                    
-                                    
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p>
-                                              Av. Dr. Nicolás San Juan S/N, Parque administrativo Cuauhtémoc, Col. Ex Hacienda La Magdalena, Toluca Estado de México, CP 50010.
-                                                                     Teléfono: 01 (722) 272-94-70, delegación.mex@nube.sep.gob.mx  www.sep.gob.mx
-  
-                                            </p>
-                                        </div>  
-                                    </div>
-                                    
-                                </form>    
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <select name="puesto" class="form-control" id="destinatario">
+                                                    <option value="">Seleccione Dependencia</option>
+                                                    <option value="SECRETARIO DE EDUCACIÓN DEL GOBIERNO DEL ESTADO DE MÉXICO">
+                                                        SECRETARIO DE EDUCACIÓN DEL GOBIERNO DEL ESTADO DE MÉXICO
+                                                    </option>
+                                                    <option value="REPRESENTANTE DE LA SUBSECRETARIA DE EDUCACIÓN MEDIA SUPERIOR EN EL ESTADO DE MÉXCO">
+                                                        REPRESENTANTE DE LA SUBSECRETARIA DE EDUCACIÓN MEDIA SUPERIOR EN EL ESTADO DE MÉXCO
+                                                    </option>
+                                                    <option value="SECRETARIO DE CULTURA Y DEPORTE DEL GOBIERNO DEL ESTADO DE MÉXICO">
+                                                        SECRETARIO DE CULTURA Y DEPORTE DEL GOBIERNO DEL ESTADO DE MÉXICO
+                                                    </option>
+                                                    <option value="DIRECTOR GENERAL DE LOS SERVICIOS EDUCATIVOS INTEGRADOS AL ESTADO DE MÉXICO">
+                                                        DIRECTOR GENERAL DE LOS SERVICIOS EDUCATIVOS INTEGRADOS AL ESTADO DE MÉXICO
+                                                    </option>
+                                                    <option value="otro">OTRO</option>
+                                                </select>
+                                                <p id="secEduca">
+                                                    INGENIERO<br>
+                                                    SIMÓN IVÁN VILLAR MARTÍNEZ<br>
+                                                    SECRETARIO DE EDUCACIÓN DEL<br>
+                                                    GOBIERNO DEL ESTADO DE MÉXICO<br>
+                                                    PRESENTE
+                                                </p>
+                                                <p id="servEduca">
+                                                    INGENIERO<br>
+                                                    CARLOS AURIEL ESTÉVEZ HERRERA<br>
+                                                    DIRECTOR GENERAL DE LOS SERVICIOS EDUCATIVOS<br>
+                                                    INTEGRADOS AL ESTADO DE MÉXICO<br>
+                                                    PRESENTE
+                                                </p>
+                                                <p id="secMSup">
+                                                    DRA. CLAUDIA MAGDALENA RIOS PEÑA<br>
+                                                    REPRESENTANTE DE LA SUBSECRETARIA<br>
+                                                    DE EDUCACIÓN MEDIA SUPERIOR EN EL <br>
+                                                    ESTADO DE MÉXICO<br>
+                                                    PRESENTE
+                                                </p>
+                                                <p id="secCulDep">
+                                                    LUZ COPIANDO<br>
+                                                    REPRESENTANTE DE LA SUBSECRETARIA<br>
+                                                    DE EDUCACIÓN MEDIA SUPERIOR EN EL <br>
+                                                    ESTADO DE MÉXICO<br>
+                                                    PRESENTE
+                                                </p>
+                                                <br>
+                                                <div id="otro">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Titulo">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" name="puesto" id="puesto" placeholder="Puesto">
+                                                    </div>
+                                                    PRESENTE
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <select name="dirigido" class="form-control" id="redaccion">
+                                                    <option value="">Seleccione Remitente</option>    
+                                                    <option value="Anteponiendo un cordial saludo, me permito remitir a Usted,  petición formulada al Lic. Enrique Peña Nieto, Presidente Constitucional de los Estados Unidos  Mexicanos, enviada a esta Delegación por la Coordinación de atención Ciudadana de la Secretaría de Educación Pública Cual se detalla a continuación:">
+                                                        Lic. Enrique Peña Nieto
+                                                    </option>
+
+                                                    <option value="Anteponiendo un cordial saludo, me permito remitir a Usted, petición formulada al Lic. Emilio Cuayffet Chemor, Secretario de Educación Pública, misma que se detalla a continuación:">
+                                                        Lic. Emilio Emilio Chuayffet Chemor
+                                                    </option>
+                                                </select>
+                                                <p id="LicEnrique">
+                                                    Anteponiendo un cordial saludo, me permito remitir a Usted,  petición formulada al Lic. Enrique<br>
+                                                    Peña Nieto, Presidente Constitucional de los Estados Unidos  Mexicanos, enviada a esta<br>
+                                                    Delegación por la Coordinación de atención Ciudadana de la Secretaría de Educación Pública, la<br>
+                                                    Cual se detalla a continuación:<br>
+                                                </p>
+                                                <p id="LicEmilio">
+                                                    Anteponiendo un cordial saludo, me permito remitir a Usted, petición formulada al Lic. Emilio<br>
+                                                    Cuayffet Chemor, Secretario de Educación Pública, misma que se detalla a continuación:
+                                                </p>
+                                            </div>
+                                        </div>
+
+
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <table border="0">
+                                                    <tr>
+                                                        <td center >CIUDADANO</td>  
+                                                        <td center>ASUNTO</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input style="width: 430px" type="text"></td>  
+                                                        <td><input style="width: 430px" type="text"></td>
+                                                    </tr>
+                                                </table>                    
+                                            </div>  
+                                        </div>
+
+
+
+
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p>
+                                                    Por lo anterior, solicito de no existir inconveniente, gire sus amables instrucciones al área<br> 
+                                                    Correspondiente a fin de brindar la atención que proceda a dicho requerimiento, rogando<br> 
+                                                    Respetuosamente sea tan gentil de enviar a esta Delegación el seguimiento del presente asunto.<br>
+                                                </p>                    
+                                            </div>  
+                                        </div>
+
+
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p>
+                                                    Sin otra particular, me retiro a sus órdenes.<br>
+                                                </p>                    
+                                            </div>  
+                                        </div>
+
+
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p>
+                                                    ATENTAMENTE<br>
+                                                    SUFRAGIO EFECTIVO. NO RELECCIÓN<br>
+                                                </p>                    
+                                            </div>  
+                                        </div>
+
+
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p>
+                                                    MTRO. GUILLERMO LEGORRETA MAETÍNEZ<br>
+                                                    DELEGADO<br>
+                                                </p>                    
+                                            </div>  
+                                        </div>
+
+
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p>
+                                                    C.C.P Lic. Rubén Jesús Lara León.-  Coordinador General de Delegaciones Federales de la Secretaria de Educación pública.- Presente.<br>
+                                                    Lic. Miguel Salcedo Hernández.-   Coordinador General de Atención Ciudadano(a).-<input placeholder="Referencia" style="width: 150px" type="text"> 
+
+                                                </p>                    
+                                            </div>  
+                                        </div>
+
+
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p>
+                                                    Lic. Edgar Israel Gutiérrez Paredes.- Jefe del Departamento de Vinculación y Apoyo institucional de la coordinación General de Delegaciones Federales.- SEP
+                                                    Folio: <input placeholder="Folio" style="width: 150px" type="text">
+
+                                                </p>                    
+                                            </div>  
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p>
+                                                    C. <input placeholder="Ciudadano(a)" style="width: 150px" type="text"><br>
+                                                    GLM/arll*
+                                                </p>
+                                            </div>  
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p>
+                                                    Av. Dr. Nicolás San Juan S/N, Parque administrativo Cuauhtémoc, Col. Ex Hacienda La Magdalena, Toluca Estado de México, CP 50010.
+                                                    Teléfono: 01 (722) 272-94-70, delegación.mex@nube.sep.gob.mx  www.sep.gob.mx
+
+                                                </p>
+                                            </div>  
+                                        </div>
+
+                                    </form>    
                                 </div><!-- /.box-body -->
                                 <div class="box-footer">
                                     <!--aqui footer-->
@@ -856,27 +856,27 @@
                 });
             });
         </script>
-        
-        
+
+
         <script>
             $(function () {
                 $('#LicEnrique').hide();
                 $('#LicEmilio').hide();
                 $('#redaccion').change(function () {
                     switch ($('#redaccion').val()) {
-                         case 'Anteponiendo un cordial saludo, me permito remitir a Usted,  petición formulada al Lic. Enrique Peña Nieto, Presidente Constitucional de los Estados Unidos  Mexicanos, enviada a esta Delegación por la Coordinación de atención Ciudadana de la Secretaría de Educación Pública Cual se detalla a continuación:':
-                         $('#LicEnrique').show();
-                         $('#LicEmilio').hide();
-                         break;
-                         
-                         case 'Anteponiendo un cordial saludo, me permito remitir a Usted, petición formulada al Lic. Emilio Cuayffet Chemor, Secretario de Educación Pública, misma que se detalla a continuación:':
-                         $('#LicEnrique').hide();
-                         $('#LicEmilio').show();
-                         break;
+                        case 'Anteponiendo un cordial saludo, me permito remitir a Usted,  petición formulada al Lic. Enrique Peña Nieto, Presidente Constitucional de los Estados Unidos  Mexicanos, enviada a esta Delegación por la Coordinación de atención Ciudadana de la Secretaría de Educación Pública Cual se detalla a continuación:':
+                            $('#LicEnrique').show();
+                            $('#LicEmilio').hide();
+                            break;
+
+                        case 'Anteponiendo un cordial saludo, me permito remitir a Usted, petición formulada al Lic. Emilio Cuayffet Chemor, Secretario de Educación Pública, misma que se detalla a continuación:':
+                            $('#LicEnrique').hide();
+                            $('#LicEmilio').show();
+                            break;
                     }
-               });
+                });
             });
-             
+
         </script>
     </body>
 </html>
