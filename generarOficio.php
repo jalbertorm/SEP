@@ -388,9 +388,9 @@
                                             <div class="col-md-12">
                                                 <p>
                                                     Oficio número SEP / DFSEPMEX / 
-                                                    <input name="noOficio" style="width: 40px" type="text">
+                                                    <input name="noOficio" style="width: 40px" type="text" required>
                                                     /
-                                                    <input name="ano" style="width: 40px" type="text">
+                                                    <input name="ano" style="width: 40px" type="text" required>
                                                 </p>
                                             </div>
                                         </div>
@@ -399,7 +399,7 @@
                                             <div class="col-md-12">
                                                 <p style="text-align: right">
                                                     Toluca, México.,
-                                                    <input name="fecha" id="fecha" type="text">
+                                                    <input name="fecha" id="fecha" type="text" required>
                                                     .
                                                 </p>
                                             </div>
@@ -407,7 +407,7 @@
 
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <select class="form-control" name="destinatario" id="destinatario">
+                                                <select class="form-control" name="destinatario" id="destinatario" required>
                                                     <option value="">Seleccione Dependencia</option>
                                                     <option value="SECRETARIO DE EDUCACIÓN DEL GOBIERNO DEL ESTADO DE MÉXICO">
                                                         SECRETARIO DE EDUCACIÓN DEL GOBIERNO DEL ESTADO DE MÉXICO
@@ -423,7 +423,7 @@
                                                     </option>
                                                     <option value="otro">OTRO</option>
                                                 </select>
-                                                
+
                                                 <p id="secEduca">
                                                     <br>
                                                     INGENIERO<br>
@@ -458,13 +458,13 @@
                                                 </p>
                                                 <div id="otro">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Titulo">
+                                                        <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Titulo" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
+                                                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name="puesto" id="puesto" placeholder="Puesto">
+                                                        <input type="text" class="form-control" name="puesto" id="puesto" placeholder="Puesto" required>
                                                     </div>
                                                     PRESENTE
                                                 </div>
@@ -474,7 +474,7 @@
                                         <br>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <select name="redaccion" class="form-control" id="redaccion">
+                                                <select name="redaccion" class="form-control" id="redaccion" required>
                                                     <option value="">Seleccione Remitente</option>    
                                                     <option value="Anteponiendo un cordial saludo, me permito remitir a Usted,  petición formulada al Lic. Enrique Peña Nieto, Presidente Constitucional de los Estados Unidos  Mexicanos, enviada a esta Delegación por la Coordinación de atención Ciudadana de la Secretaría de Educación Pública Cual se detalla a continuación:">
                                                         Lic. Enrique Peña Nieto
@@ -504,16 +504,66 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" name="ciudadano" id="ciudadano" placeholder="Ciudadano(a)">
+                                                    <input type="text" class="form-control" name="ciudadano" id="ciudadano" placeholder="Ciudadano(a)" required>
                                                 </div>
                                             </div>
+
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" name="ciudadano" id="ciudadano" placeholder="Ciudadano(a)">
+                                                    <input type="text" class="form-control" name="telCiudadano" id="telCiudadano" placeholder="Telfono" required>
                                                 </div>
                                             </div>
                                         </div>
 
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="mailCiodadano" id="mailCiodadano" placeholder="Email" required>
+                                                </div>
+                                            </div>
+                                        </div>    
+
+
+
+                                        <div class="row" id="INPUT1">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="mail1" id="mail1" placeholder="Email">  
+                                                </div>
+                                            </div> 
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="mail2" id="mail2" placeholder="Email">  
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" id="INPUT2">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="mail3" id="mail3" placeholder="Email">  
+                                                </div>
+                                            </div> 
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="mail4" id="mail4" placeholder="Email">  
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <!--<a href="#" id="boton1">Agregar Email</a>-->
+                                                    <button id="boton1">Agregar mas Emails</button>    
+                                                    <button id="boton2">Agregar mas Emails</button>
+                                                </div>
+                                            </div>     
+                                        </div>
+
+                                        <br>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
@@ -576,7 +626,7 @@
                                                 <p style="font-size: 10px">
                                                     C.C.P Lic. Rubén Jesús Lara León.-  Coordinador General de Delegaciones Federales de la Secretaria de Educación pública.- Presente.<br>
                                                     Lic. Miguel Salcedo Hernández.-   Coordinador General de Atención Ciudadano(a).-
-                                                    <input placeholder="Referencia" name="referencia" style="width: 150px" type="text"> 
+                                                    <input placeholder="Referencia" name="referencia" style="width: 150px" type="text" required> 
                                                 </p>                    
                                             </div>  
                                         </div>
@@ -588,7 +638,7 @@
                                                 <p style="font-size: 10px">
                                                     Lic. Edgar Israel Gutiérrez Paredes.- Jefe del Departamento de Vinculación y Apoyo institucional de la coordinación General de Delegaciones Federales.- SEP
                                                     <br>Folio: 
-                                                    <input placeholder="Folio" name="folio" style="width: 150px" type="text">
+                                                    <input placeholder="Folio" name="folio" style="width: 150px" type="text" required>
                                                 </p>                    
                                             </div>  
                                         </div>
@@ -926,5 +976,33 @@
                 });
             });
         </script> 
+
+
+        <script>
+
+            $(document).ready(function(){
+                $("#boton2").hide();
+                $("#INPUT1").hide();
+                $("#INPUT2").hide();
+
+                $("#boton1").click(function () {
+                    $("#INPUT1").show();
+                    $("#boton2").show();
+                    $("#INPUT2").hide();
+                    $("#boton1").hide();
+                });
+                
+                
+                $("#boton2").click(function () {
+                    $("#INPUT1").show();
+                    $("#boton2").hide();
+                    $("#INPUT2").show();
+                    $("#boton1").hide();
+                });
+
+            });
+        </script>
+
+
     </body>
 </html>

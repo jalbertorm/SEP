@@ -13,26 +13,35 @@
 	$folio=__($_POST["folio"]);
 	$mailCiodadano=__($_POST["mailCiodadano"]);
 	$telCiudadano=__($_POST["telCiudadano"]);	
-	$mail1=uno;
-	$mail2=dos;
-	$mail3=tres;
-	$mail4=cuatro;
-	$mail5=cinco;	
-	
+	$mail1=__($_POST["mail1"]);
+	$mail2=__($_POST["mail2"]);	
+	$mail3=__($_POST["mail3"]);
+        $mail4=__($_POST["mail4"]);
+        
 	require("sources/Query.inc");
     $query=new Query();
+    
 
 if($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciudadano, asunto, referencia, folio, mailCiudadano, telCiudadano, mail1, mail2, mail3, mail4, mail5",    "'$noOficio', '$ano', '$fecha','$titulo', '$nombre', '$puesto', '$ciudadano', '$asunto','$referencia', '$folio','$mailCiudadano', '$telCiudadano', '$mail1', '$mail2', '$mail3', '$mail4', '$mail5'"))
 	{
     	$respuesta= "<center><h1><span>Agregado correctamente</span></h1></center>";
 		
 	
-		
+
+        
 		
     }else
 	{
         $respuesta="<center><h1><p>Error</p></h1>></center>";
     }
+    
+    $bb=$query->select("asunto", "oficio", "idOficio=16");
+
+if($bb){
+    foreach($bb as $b){
+        echo "$b->asunto";
+    }
+}
 ?>
 
 
