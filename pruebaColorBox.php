@@ -2,6 +2,7 @@
 <html>
     <head>
         <?php include ('sources/template/head.php'); ?>
+        <link rel="stylesheet" href="css/colorbox.css" />
     </head>
     <body class="skin-black-light sidebar-mini">
         <!-- Site wrapper -->
@@ -65,7 +66,7 @@
                                     </div>
                                 </div>
                                 <div class="box-body">
-                                    Start creating your amazing application!
+                                    <p><a class='iframe' href="consultaColorBox.php?id=3">Inline HTML</a></p>
                                 </div><!-- /.box-body -->
                                 <div class="box-footer">
                                     Footer
@@ -81,5 +82,11 @@
         </div><!-- ./wrapper -->
 
         <?php include ('sources/template/scripts.php'); ?>
+        <script src="js/jquery.colorbox.js"></script>
+        <script>
+            $(document).ready(function () {
+                $(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
+            });
+        </script>
     </body>
 </html>
