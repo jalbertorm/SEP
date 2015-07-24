@@ -19,3 +19,12 @@
         $(".textarea").wysihtml5();
     });
 </script>
+<!-- DATA TABES SCRIPT -->
+<script src="plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="plugins/datatables/dataTables.bootstrap.min.js" type="text/javascript"></script>
+<!-- page script -->
+<script type="text/javascript">
+    $(function () {
+        $("#example1").DataTable();
+    });
+</script>

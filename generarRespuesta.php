@@ -10,9 +10,7 @@
             <header class="main-header">
                 <?php include ('sources/template/header.php'); ?>
             </header>
-
             <!-- =============================================== -->
-
             <!-- Left side column. contains the sidebar -->
             <aside class="main-sidebar">
                 <!-- sidebar: style can be found in sidebar.less -->
@@ -37,7 +35,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li class="active"><a href="generarRespuesta.php"><i class="fa fa-circle-o"></i> Redactar Respuesta</a></li>
-                                <li><a href="500.html"><i class="fa fa-circle-o"></i> Respuestas Enviadas</a></li>
+                                <li><a href="consultarRespuesta.php"><i class="fa fa-circle-o"></i> Respuestas Enviadas</a></li>
                             </ul>
                         </li>
                     </ul>

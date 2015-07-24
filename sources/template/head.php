@@ -24,4 +24,4 @@
 <![endif]-->
 
 <link href="css/jquery-ui.css" rel="stylesheet" />
-
+<link href="plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
