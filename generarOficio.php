@@ -69,7 +69,7 @@
                                     <form action="guardarOficio.php" method="post">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <img src="images/oficioHeader.png" width="100%">
+                                                <img src="images/oficioHeader.PNG" width="100%">
                                             </div>
                                         </div>
 
@@ -77,9 +77,9 @@
                                             <div class="col-md-12">
                                                 <p>
                                                     Oficio número SEP / DFSEPMEX / 
-                                                    <input name="noOficio" style="width: 40px" type="text">
+                                                    <input name="noOficio" style="width: 40px" type="text" required>
                                                     /
-                                                    <input name="ano" style="width: 40px" type="text">
+                                                    <input name="ano" style="width: 40px" type="text" required>
                                                 </p>
                                             </div>
                                         </div>
@@ -88,7 +88,7 @@
                                             <div class="col-md-12">
                                                 <p style="text-align: right">
                                                     Toluca, México.,
-                                                    <input name="fecha" id="fecha" type="text">
+                                                    <input name="fecha" id="fecha" type="text" required>
                                                     .
                                                 </p>
                                             </div>
@@ -96,7 +96,7 @@
 
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <select class="form-control" name="destinatario" id="destinatario">
+                                                <select class="form-control" name="destinatario" id="destinatario" required>
                                                     <option value="">Seleccione Dependencia</option>
                                                     <option value="SECRETARIO DE EDUCACIÓN DEL GOBIERNO DEL ESTADO DE MÉXICO">
                                                         SECRETARIO DE EDUCACIÓN DEL GOBIERNO DEL ESTADO DE MÉXICO
@@ -139,10 +139,10 @@
                                                 </p>
                                                 <p id="secCulDep">
                                                     <br>
-                                                    LUZ COPIANDO<br>
-                                                    REPRESENTANTE DE LA SUBSECRETARIA<br>
-                                                    DE EDUCACIÓN MEDIA SUPERIOR EN EL <br>
-                                                    ESTADO DE MÉXICO<br>
+                                                    DR. EN C.<br>
+                                                    EDUARDO GASCA PLIEGO<br>
+                                                    SECRETARIO DE CULTURA Y DEPORTE<br>
+                                                    DEL GOBIERNO DEL ESTADO DE MÉXICO<br>
                                                     PRESENTE
                                                 </p>
                                                 <div id="otro">
@@ -163,7 +163,7 @@
                                         <br>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <select name="redaccion" class="form-control" id="redaccion">
+                                                <select name="redaccion" class="form-control" id="redaccion"required>
                                                     <option value="">Seleccione Remitente</option>    
                                                     <option value="Anteponiendo un cordial saludo, me permito remitir a Usted,  petición formulada al Lic. Enrique Peña Nieto, Presidente Constitucional de los Estados Unidos  Mexicanos, enviada a esta Delegación por la Coordinación de atención Ciudadana de la Secretaría de Educación Pública Cual se detalla a continuación:">
                                                         Lic. Enrique Peña Nieto
@@ -193,15 +193,81 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" name="ciudadano" id="ciudadano" placeholder="Ciudadano(a)">
+                                                    <input type="text" class="form-control" name="ciudadano" id="ciudadano" placeholder="Ciudadano(a)" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="telCiudadano" id="telCiudadano" placeholder="Telefono: (722) 222-4444" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="mailCiodadano" id="mailCiodadano" placeholder="Email: ejemplo@ejemplo.com" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <br>
+                                        <div class="row" id="renglon1">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="mail1" id="mail1" placeholder="Email: ejemplo@ejemplo.com">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" name="ciudadano" id="ciudadano" placeholder="Ciudadano(a)">
+                                                    <input type="text" class="form-control" name="mail2" id="mail2" placeholder="Email: ejemplo@ejemplo.com">
                                                 </div>
                                             </div>
                                         </div>
+
+
+
+                                        <div class="row" id="renglon2">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="mail3" id="mail3" placeholder="Email: ejemplo@ejemplo.com">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="mail4" id="mail4" placeholder="Email: ejemplo@ejemplo.com">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" id="boton1">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <button id="hide">Agregar Emails</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row" id="boton2">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <button id="hide">Agregar mas Emails</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
 
                                         <div class="row">
                                             <div class="col-md-12">
@@ -346,6 +412,9 @@
                             $('#secMSup').show();
                             $('#secCulDep').hide();
                             $('#otro').hide();
+                            $('#titulo').val('DRA.');
+                            $('#nombre').val('CLAUDIA MAGDALENA RIOS PEÑA');
+                            $('#puesto').val('REPRESENTANTE DE LA SUBSECRETARIA<br> DE EDUCACIÓN MEDIA SUPERIOR EN EL<br> ESTADO DE MÉXCO<br>');
                             break;
                         case 'SECRETARIO DE CULTURA Y DEPORTE DEL GOBIERNO DEL ESTADO DE MÉXICO':
                             $('#secEduca').hide();
@@ -353,6 +422,9 @@
                             $('#secMSup').hide();
                             $('#secCulDep').show();
                             $('#otro').hide();
+                            $('#titulo').val('DR. EN C.');
+                            $('#nombre').val('EDUARDO GASCA PLIEGO');
+                            $('#puesto').val('SECRETARIO DE CULTURA Y DEPORTE<br> DEL GOBIERNO DEL ESTADO DE MÉXICO<br>');
                             break;
                         case 'DIRECTOR GENERAL DE LOS SERVICIOS EDUCATIVOS INTEGRADOS AL ESTADO DE MÉXICO':
                             $('#secEduca').hide();
@@ -360,6 +432,9 @@
                             $('#secMSup').hide();
                             $('#secCulDep').hide();
                             $('#otro').hide();
+                            $('#titulo').val('INGENIERO');
+                            $('#nombre').val('CARLOS AURIEL ESTÉVEZ HERRERA');
+                            $('#puesto').val('DIRECTOR GENERAL DE LOS SERVICIOS EDUCATIVOS<br> INTEGRADOS AL ESTADO DE MÉXICO<br>');
                             break;
                         case 'otro':
                             $('#secEduca').hide();
@@ -381,7 +456,6 @@
                 });
             });
         </script>
-
 
         <script>
             $(function () {
@@ -424,5 +498,39 @@
                 });
             });
         </script> 
+
+
+
+        <script>
+            $('#renglon1').hide();
+            $('#renglon2').hide();
+            $('#boton1').show();
+            $('#boton2').hide();
+
+
+            $(document).ready(function () {
+                $("#boton1").click(function () {
+                    $('#renglon1').show();
+                    $('#renglon2').hide();
+                    $('#boton1').hide();
+                    $('#boton2').show();
+                });
+
+
+                $("#boton2").click(function () {
+                    $('#renglon1').show();
+                    $('#renglon2').show();
+                    $('#boton1').hide();
+                    $('#boton2').hide();
+                });
+
+
+
+            });
+
+        </script>
+
+
+
     </body>
 </html>
