@@ -2,32 +2,15 @@
 ob_start();
 include("sources/funciones.php");
 
-$noOficio = __($_POST["noOficio"]);
-$ano = __($_POST["ano"]);
-$fecha = __($_POST["fecha"]);
-$titulo = __($_POST["titulo"]);
-$nombre = __($_POST["nombre"]);
-$puesto = __($_POST["puesto"]);
-$redaccion = __($_POST["redaccion"]);
-$ciudadano = __($_POST["ciudadano"]);
-$asunto = __($_POST["asunto"]);
-$referencia = __($_POST["referencia"]);
-$folio = __($_POST["folio"]);
-$mailCiudadano = strtolower(__($_POST["mailCiudadano"]));
-$telCiudadano = __($_POST["telCiudadano"]);
-$mail1 = strtolower(__($_POST["mail1"]));
-$mail2 = strtolower(__($_POST["mail2"]));
-$mail3 = strtolower(__($_POST["mail3"]));
-$mail4 = strtolower(__($_POST["mail4"]));
-$gracias = "Por lo anterior, solicito de no existir inconveniente, gire sus amables instrucciones al área 
-          Correspondiente a fin de brindar la atención que proceda a dicho requerimiento, rogando 
-          Respetuosamente sea tan gentil de enviar a esta Delegación el seguimiento del presente asunto.";
+
+$nom = "holabb";
 
 require("sources/Query.inc");
 $query = new Query();
 
-if ($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciudadano, asunto, referencia, folio, mailCiudadano, telCiudadano, mail1, mail2, mail3, mail4, mail5", "'$noOficio', '$ano', '$fecha','$titulo', '$nombre', '$puesto', '$ciudadano', '$asunto','$referencia', '$folio','$mailCiudadano', '$telCiudadano', '$mail1', '$mail2', '$mail3', '$mail4', '$mail5'")) {
-    $respuesta = "<center><h1><span>Agregado correctamente</span></h1></center>";
+
+
+if ($query->insert("oficio", "nombre", "'$nom'")) {
     ?>
     <!DOCTYPE html>
     <html>
@@ -41,11 +24,11 @@ if ($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciud
             <table border="0" style="width: 90%">
                 <tr>
                     <td>
-                        bb
+                        se genero    
                     </td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                    <td style="width: 60%; text-align: left">
-                        <p>
+                    <td>
+                        <p aling="left">
                             <font style="font-style: italic; font-size: 13px">"2015 Año del Generalísimo Jose María Morelos y Pavón."</font>
                             <br>
                             <br>
@@ -168,17 +151,17 @@ if ($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciud
         </center>
     </body>
     </html>
-
     <?php
     require_once("sources/dompdf/dompdf_config.inc.php");
     $dompdf = new DOMPDF();
     $dompdf->load_html(ob_get_clean());
     $dompdf->render();
     $pdf = $dompdf->output();
-    $filename = 'Oficios/OficioNo' . $noOficio . '.pdf';
+    $filename = "Oficios/Pinche2" . $nom . '.pdf';
     file_put_contents($filename, $pdf);
-    //eComprobante($folio, $mail);
+
+    //eComprobante($folio,$mail);
 } else {
-    $respuesta = "<center><h1><p>Error Al Insertar</p></h1>></center>";
+    $respuesta = "error al insertar";
 }
 ?>

@@ -214,7 +214,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" name="mailCiodadano" id="mailCiodadano" placeholder="Email: ejemplo@ejemplo.com" required>
+                                                    <input type="text" class="form-control" name="mailCiudadano" id="mailCiudadano" placeholder="Email: ejemplo@ejemplo.com" required>
                                                 </div>
                                             </div>
                                         </div>
