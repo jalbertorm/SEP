@@ -34,22 +34,22 @@ if ($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciud
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         </head>
+        <!--<body style="margin-top: 10px; margin-right: 0px; margin-left: 50px;">-->
         <body>
         <center>
             <br>
-            <br>
-            <table border="0" style="width: 90%">
+            <table border="1" style="width: 90%" >
                 <tr>
                     <td>
                         bb
                     </td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                    <td style="width: 60%; text-align: left">
-                        <p>
-                            <font style="font-style: italic; font-size: 13px">"2015 Año del Generalísimo Jose María Morelos y Pavón."</font>
+                    <td style="width: 60%; text-align: left; font-family:Arial, Helvetica, sans-serif">
+                        <p style=" font-size: 8px">
+                            <font style="font-style: italic; font-size: 9px; font-family:Arial, Helvetica, sans-serif">"2015 Año del Generalísimo Jose María Morelos y Pavón."</font>
                             <br>
                             <br>
-                            <b style="font-size: 14px">SECRETARÍA DE EDUCACIÓN PÚBLICA</b><br>
+                            <b style="font-size: 8px; font-family:Arial, Helvetica, sans-serif">SECRETARÍA DE EDUCACIÓN PÚBLICA</b><br>
                             Coordinación General Delegaciones Federales<br>
                             de la Secreataría de Educacion Pública<br>
                             Delegación Federal de la Secretaría de Educación<br>
@@ -57,26 +57,30 @@ if ($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciud
                         </p>
                     </td>
                 </tr>
+
+            </table>
+
+            <table style="width: 50%" border="1">
                 <tr>
                     <td>
-                        <br><br><br>
-                        <p>Oficio número SEP/DFSEPMEX /<?php echo $noOficio; ?>/<?php echo $ano; ?> </p>
+                        <p style="font-size: 10px; font-family:Arial, Helvetica, sans-serif; text-align: left" >Oficio número SEP/DFSEPMEX /<?php echo $noOficio; ?>/<?php echo $ano; ?> </p>
                     </td>
                 </tr>
             </table>
 
-            <table border="0" style="width: 90%">    
+
+            <table border="1" style="width: 90%">    
                 <tr>
                     <td align="right">
-                        <p style="font-size: 21px">Toluca, México.,<?php echo $fecha; ?></p><br>
+                        <p style="font-size: 10px; font-family:Arial, Helvetica, sans-serif; text-align: right">Toluca, México.,<?php echo $fecha; ?></p><br>
                     </td>
                 </tr>
             </table>
 
-            <table border="0" style="width: 90%">
+            <table border="1" style="width: 90%">
                 <tr>
                     <td>
-                        <p><?php echo $titulo; ?><br>
+                        <p style="font-size: 10px; font-family:Arial, Helvetica, sans-serif; text-align: left"><?php echo $titulo; ?><br>
                             <?php echo $nombre; ?><br>
                             <?php echo $puesto; ?><br> 
                             PRESENTE
@@ -86,18 +90,18 @@ if ($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciud
             </table>
             <br>
 
-            <table border="0" style="width: 90%">
+            <table border="1" style="width: 90%">
                 <tr>
                     <td>
-                        <p><?php echo $redaccion ?></p>
+                        <p style="font-size: 10px; font-family:Arial, Helvetica, sans-serif;text-align: justify "><?php echo $redaccion ?></p>
                     </td>
                 </tr>
             </table>
 
             <table border="1" style="width: 90%">
                 <tr>
-                    <td align="right" style="width: 30%"><b><center>CIUDADANO</center></b></td>
-                    <td align="right"><b><center>ASUNTO</center></b></td>
+                    <td align="right" style="width: 30%"><center><b style="font-size: 9px; font-family:Arial, Helvetica, sans-serif">CIUDADANO</b></center></td>
+                <td align="right"><center><b style="font-size: 9px; font-family:Arial, Helvetica, sans-serif">ASUNTO</b></center></td>
                 </tr>
                 <tr>
                     <td><p><?php echo $ciudadano; ?></p></td>
@@ -107,65 +111,56 @@ if ($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciud
 
             <br>
 
-            <table border="0" style="width: 90%">
+            <table border="1" style="width: 90%">
                 <tr>
-                    <td><p class="text-justify"><?php echo $gracias; ?></p></td>
+                    <td><p class="text-justify" style="font-size: 10px; font-family:Arial, Helvetica, sans-serif; text-align: justify "><?php echo $gracias; ?></p></td>
                 </tr>
 
                 <tr>
-                    <td><p class="text-justify">Sin otra particular, me retiro a sus órdenes.</p></td>
+                    <td><p class="text-justify" style="font-size: 10px; font-family:Arial, Helvetica, sans-serif; text-align: justify ">Sin otra particular, me retiro a sus órdenes.</p></td>
                 </tr>
 
                 <tr>
-                    <td><p>ATENTAMENTE<br>
+                    <td><p class="text-justify" style="font-size: 10px; font-family:Arial, Helvetica, sans-serif; text-align: justify">ATENTAMENTE<br>
                             SUFRAGIO EFECTIVO. NO RELECCIÓN</p>
                     </td>
                 </tr>
 
                 <tr>
-                    <td><p>MTRO. GUILLERMO LEGORRETA MAETÍNEZ<br>
+                    <td><p class="text-justify" style="font-size: 10px; font-family:Arial, Helvetica, sans-serif; text-align: justify">MTRO. GUILLERMO LEGORRETA MAETÍNEZ<br>
                             DELEGADO</p>
                     </td>
                 </tr> 
             </table>
-
-            <table border="0" style="width: 90%">
-                <tr>
-                    <td>
-                        <p style="font-size: 10px">
-                            C.C.P Lic. Rubén Jesús Lara León.-  Coordinador General de Delegaciones Federales de la Secretaria de Educación pública.- Presente.<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lic. Miguel Salcedo Hernández.-   Coordinador General de Atención Ciudadano(a).-<?php echo $referencia ?><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lic. Edgar Israel Gutiérrez Paredes.- Jefe del Departamento de Vinculación y Apoyo institucional de la coordinación General de Delegaciones Federales.- SEP<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Folio:<?php echo $folio ?><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C.<?php echo $ciudadano ?><br>
-                            GLM/arll*
-                        </p>
-                    </td>
-                </tr>
-            </table>
-
-            <br />
-            <br />
-
-            <table border="0" style="width: 90%">
-                <tr>
-                    <td>
-                        <p style="font-size: 10px" align="center">
-                            Av. Dr. Nicolás San Juan S/N, Parque administrativo Cuauhtémoc, Col. Ex Hacienda La Magdalena, Toluca Estado de México, CP 50010.<br>
-                            Teléfono: 01 (722) 272-94-70, delegación.mex@nube.sep.gob.mx  www.sep.gob.mx
-                        </p>
-                    </td>
-                </tr>
-            </table>
-
-            <table>
-                <tr>
-                    <td>
-                        <p class="text-justify"><?php echo $respuesta; ?></p> 
-                    </td>
-                </tr>
-            </table>
         </center>
+        <table border="1" style="width: 90%; alignment-adjust: central"  >
+            <tr>
+                <td>
+                    <p style="font-size: 6px; font-family:Arial, Helvetica, sans-serif">
+                        C.C.P <b>Lic. Rubén Jesús Lara León</b>.-  Coordinador General de Delegaciones Federales de la Secretaria de Educación pública.- Presente.<br>
+                        <b style="padding-left: 16px">Lic. Miguel Salcedo Hernández</b>.-   Coordinador General de Atención Ciudadano(a).-<?php echo $referencia ?><br>
+                        <b style="padding-left: 16px">Lic. Edgar Israel Gutiérrez Paredes</b>.- Jefe del Departamento de Vinculación y Apoyo institucional de la coordinación General de Delegaciones Federales.- SEP<br>
+                        <b style="padding-left: 16px">Folio</b>:<?php echo $folio ?><br>
+                        <b style="padding-left: 16px">C</b>.<?php echo $ciudadano ?><br>
+                        GLM/arll*
+                    </p>
+                    jlkmnklnln<br>jlkmnklnln<br>jlkmnklnln<br>jlkmnklnln<br>jlkmnklnln<br>jlkmnklnln<br>jlkmnklnln<br>jlkmnklnln<br>jlkmnklnln<br>
+                </td>
+            </tr>
+        </table>
+
+        <br />
+        <table border="1" style="width: 90%; position: fixed; bottom: 0">
+            <tr>
+                <td>
+                    <p style="font-size: 6px; font-family:Arial, Helvetica, sans-serif; text-align: center">
+                        Av. Dr. Nicolás San Juan S/N, Parque administrativo Cuauhtémoc, Col. Ex Hacienda La Magdalena, Toluca Estado de México, CP 50010.<br>
+                        Teléfono: 01 (722) 272-94-70, delegación.mex@nube.sep.gob.mx  www.sep.gob.mx
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <div style="position:fixed; bottom:0">hola bb</div>
     </body>
     </html>
 
