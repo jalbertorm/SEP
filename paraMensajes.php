@@ -1,12 +1,12 @@
 <?php
-/* Respuesta si toso es OK
+//Respuesta si toso es OK
   $respuesta = '
   <img src="images/ok.png" width="100">
   <h4>
-    Oficio/Respuesta enviado(a) correctamente
+    Respuesta enviada correctamente
   </h4>
   ';
-
+/* 
 
   //Respuesta si toso es ERROR
   $respuesta = '

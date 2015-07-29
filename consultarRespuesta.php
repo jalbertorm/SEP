@@ -3,6 +3,7 @@
 <html>
     <head>
         <?php include ('sources/template/head.php'); ?>
+		
     </head>
     <body class="skin-black-light sidebar-mini">
         <!-- Site wrapper -->
@@ -60,7 +61,7 @@
                             <!-- Default box -->
                             <div class="box box-solid box-default">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">Title</h3>
+                                    <h3 class="box-title">Respuestas</h3>
                                     <div class="box-tools pull-right">
                                         <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
                                     </div>
@@ -82,5 +83,6 @@
         </div><!-- ./wrapper -->
 
         <?php include ('sources/template/scripts.php'); ?>
+		
     </body>
 </html>

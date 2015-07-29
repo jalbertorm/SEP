@@ -10,7 +10,9 @@
             <header class="main-header">
                 <?php include ('sources/template/header.php'); ?>
             </header>
+
             <!-- =============================================== -->
+
             <!-- Left side column. contains the sidebar -->
             <aside class="main-sidebar">
                 <!-- sidebar: style can be found in sidebar.less -->
@@ -51,53 +53,41 @@
 
                 <!-- Main content -->
                 <section class="content">
-                    <form action="guardarRespuesta.php" method="post">
-                        <div class="row">
-
-                            <div class="col-md-10 col-md-offset-1">
-
-                                <div class="box box-solid box-default">
-                                    <div class="box-header with-border" >
-
-                                        <h3 class="box-title">Redactar Respuesta</h3>
-
-                                        <div class="box-tools pull-right">
-                                            <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
-                                        </div>
+                    <div class="row">
+                        <!-- left column -->
+                        <div class="col-md-10 col-md-offset-1">
+                            <!-- Default box -->
+                            <div class="box box-solid box-default">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Redactar Respuesta</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
                                     </div>
+                                </div>
+                                <form action="guardarRespuesta.php" method="post">
                                     <div class="box-body">
-
-
-
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Asunto: </label>
-                                            <input type="text" class="form-control" id="asunto" name="asunto" required placeholder="Asunto">
-                                        </div>
-
-
-
-                                        <div class="box-body pad">
-
-                                            <textarea class="textarea" placeholder="Place some text here"					
+                                        <form action="guardarRespuesta.php" method="post">
+                                            <div class="form-group">
+                                                <!-- aqui cambiar el value, por lo que traeremos en PHP-->
+                                                <input type="hidden" id="idOficio" name="idOficio" value="3">
+                                                <label for="exampleInputEmail1">Asunto: </label>
+                                                <input type="text" class="form-control" id="asunto" name="asunto" required placeholder="Asunto">
+                                            </div>
+                                            <textarea class="textarea" placeholder="Redactar Respuesta"					
                                                       style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; 
                                                       border: 1px solid #dddddd; padding: 10px;"
                                                       id="redaccion" name="redaccion" required></textarea>
 
-                                        </div>			
-
-
-                                    </div>
-
-
+                                    </div><!-- /.box-body -->
                                     <div class="box-footer text-right">
-                                        <button class="btn btn-default">Default</button>
+                                        <button type="reset" class="btn btn-default">Limpiar</button>
                                         &nbsp;
-                                        <button class="btn btn-default">Default</button>
+                                        <button type="submit" class="btn btn-default">Enviar</button>
                                     </div><!-- /.box-footer-->
-                                </div><!-- /.box -->
-                            </div>
+                                </form>
+                            </div><!-- /.box -->
                         </div>
-                    </form>
+                    </div>
                 </section><!-- /.content -->
             </div><!-- /.content-wrapper -->
 
