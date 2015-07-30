@@ -1,3 +1,4 @@
+<!--ESTE ARCHIVO GUARDA EL REGISTRO Y CREA EL PDF-->
 <?php
 ob_start();
 include("sources/funciones.php");
@@ -13,8 +14,8 @@ $ciudadano = __($_POST["ciudadano"]);
 $asunto = __($_POST["asunto"]);
 $referencia = __($_POST["referencia"]);
 $folio = __($_POST["folio"]);
-$mailCiudadano = strtolower(__($_POST["mailCiudadano"]));
 $telCiudadano = __($_POST["telCiudadano"]);
+$mailCiudadano = strtolower(__($_POST["mailCiudadano"]));
 $mail1 = strtolower(__($_POST["mail1"]));
 $mail2 = strtolower(__($_POST["mail2"]));
 $mail3 = strtolower(__($_POST["mail3"]));
@@ -41,7 +42,7 @@ if ($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciud
             <table border="1" style="width: 90%" >
                 <tr>
                     <td>
-                        bb
+                        Aqui va la imagen
                     </td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td style="width: 60%; text-align: left; font-family:Arial, Helvetica, sans-serif">
@@ -144,7 +145,6 @@ if ($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciud
                         <b style="padding-left: 16px">C</b>.<?php echo $ciudadano ?><br>
                         GLM/arll*
                     </p>
-                    jlkmnklnln<br>jlkmnklnln<br>jlkmnklnln<br>jlkmnklnln<br>jlkmnklnln<br>jlkmnklnln<br>jlkmnklnln<br>jlkmnklnln<br>jlkmnklnln<br>
                 </td>
             </tr>
         </table>
@@ -160,7 +160,7 @@ if ($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciud
                 </td>
             </tr>
         </table>
-        <div style="position:fixed; bottom:0">hola bb</div>
+        
     </body>
     </html>
 
@@ -172,7 +172,7 @@ if ($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciud
     $pdf = $dompdf->output();
     $filename = 'Oficios/OficioNo' . $noOficio . '.pdf';
     file_put_contents($filename, $pdf);
-    //eComprobante($folio, $mail);
+    enviarOficio($noOficio, $mailCiudadano, $mail1, $mail2, $mail3, $mail4, $asunto);
 } else {
     $respuesta = "<center><h1><p>Error Al Insertar</p></h1>></center>";
 }

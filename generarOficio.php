@@ -1,3 +1,4 @@
+<!--ESTE ARCHIVO ES EL FORMULARIO PARA EL PDF-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -331,7 +332,7 @@
                                                 <p style="font-size: 10px">
                                                     C.C.P Lic. Rubén Jesús Lara León.-  Coordinador General de Delegaciones Federales de la Secretaria de Educación pública.- Presente.<br>
                                                     Lic. Miguel Salcedo Hernández.-   Coordinador General de Atención Ciudadano(a).-
-                                                    <input placeholder="Referencia" name="referencia" style="width: 150px" type="text"> 
+                                                    <input placeholder="Referencia" name="referencia" style="width: 150px" type="text"required> 
                                                 </p>                    
                                             </div>  
                                         </div>
@@ -343,7 +344,7 @@
                                                 <p style="font-size: 10px">
                                                     Lic. Edgar Israel Gutiérrez Paredes.- Jefe del Departamento de Vinculación y Apoyo institucional de la coordinación General de Delegaciones Federales.- SEP
                                                     <br>Folio: 
-                                                    <input placeholder="Folio" name="folio" style="width: 150px" type="text">
+                                                    <input placeholder="Folio" name="folio" style="width: 150px" type="text" required>
                                                 </p>                    
                                             </div>  
                                         </div>
