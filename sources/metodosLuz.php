@@ -9,7 +9,7 @@ function tablaRespuesta() {
 
 
 
-    $regCupo = $query->select("r.idRespuesta idR, o.folio folio, r.asunto asunto, r.fecha fecha", "oficio o, respuesta r", "o.noOficio=r.oficio_idOficio");
+    $regCupo = $query->select("o.folio folio, r.asunto asunto, r.fecha fecha", "oficio o, respuesta r", "o.idOficio=r.oficio_idOficio");
 
     if ($regCupo) {
         $i = 0;
@@ -40,7 +40,7 @@ function tablaRespuesta() {
             echo "<td>$regC->asunto</td>";
             echo "<td>$regC->fecha</td>";
 
-            
+
             echo "<td><a class='iframe' href='redaccionRespuesta.php?id=$regC->idR'><i class='fa fa-clipboard' title='Ver Respuesta'></i></a></td>";
 
 
@@ -96,7 +96,6 @@ function tablaRespuesta() {
     }
 }
 
-
 function getRespuesta($id) {
     include_once("Query.inc");
     $query = new Query();
@@ -110,22 +109,19 @@ function getRespuesta($id) {
         }
     }
 }
+
 function redaccionRespuesta($id) {
-    
-                                    
-                                    include_once("sources/Query.inc");
 
-                                    $query = new Query();
-                                    $consulta = $query->select("redaccion", "respuesta", "idRespuesta=$id");
 
-                                    if ($consulta) {
-                                        foreach ($consulta as $c) {
-                                            echo $c->redaccion;
-                                        }
-                                    }
-    
-    
-    
-    
+    include_once("sources/Query.inc");
+
+    $query = new Query();
+    $consulta = $query->select("redaccion", "respuesta", "idRespuesta=$id");
+
+    if ($consulta) {
+        foreach ($consulta as $c) {
+            echo $c->redaccion;
+        }
+    }
 }
 ?>
