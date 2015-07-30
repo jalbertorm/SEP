@@ -1,7 +1,9 @@
 <?php
 session_start();
 include ("config.php");
-include ("metodos.php");
+include ("metodosLuz.php");
+include ("metodosRobert.php");
+include ("metodosBeto.php");
 
 #Limpia los datos
 function __($var)
