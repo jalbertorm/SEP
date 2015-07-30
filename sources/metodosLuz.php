@@ -9,7 +9,7 @@ function tablaRespuesta() {
 
 
 
-    $regCupo = $query->select("o.folio folio, r.asunto asunto, r.fecha fecha", "oficio o, respuesta r", "o.idOficio=r.oficio_idOficio");
+    $regCupo = $query->select("r.idRespuesta idR, o.folio folio, r.asunto asunto, r.fecha fecha", "oficio o, respuesta r", "o.idOficio=r.oficio_idOficio");
 
     if ($regCupo) {
         $i = 0;
