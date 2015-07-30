@@ -2,6 +2,9 @@
 <html>
     <head>
         <?php include ('sources/template/head.php'); ?>
+        <script src='js/j_validarFormularioRespuesta.js'></script>
+        
+        
     </head>
     <body class="skin-black-light sidebar-mini">
         <!-- Site wrapper -->
@@ -66,17 +69,19 @@
                                 </div>
                                 <form action="guardarRespuesta.php" method="post">
                                     <div class="box-body">
+                                        <!--
                                         <form action="guardarRespuesta.php" method="post">
-                                            <div class="form-group">
-                                                <!-- aqui cambiar el value, por lo que traeremos en PHP-->
-                                                <input type="hidden" id="idOficio" name="idOficio" value="3">
-                                                <label for="exampleInputEmail1">Asunto: </label>
-                                                <input type="text" class="form-control" id="asunto" name="asunto" required placeholder="Asunto">
-                                            </div>
-                                            <textarea class="textarea" placeholder="Redactar Respuesta"					
-                                                      style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; 
-                                                      border: 1px solid #dddddd; padding: 10px;"
-                                                      id="redaccion" name="redaccion" required></textarea>
+                                        -->
+                                        <div class="form-group">
+                                            <!-- aqui cambiar el value, por lo que traeremos en PHP-->
+                                            <input type="hidden" id="idOficio" name="idOficio" value="3">
+                                            <label for="exampleInputEmail1">Asunto: </label>
+                                            <input type="text" class="form-control" id="asunto" name="asunto" required placeholder="Asunto" value="">
+                                        </div>
+                                        <textarea class="textarea" placeholder="Redactar Respuesta"	value=""  id="redaccion" name="redaccion"				
+                                                  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; 
+                                                  border: 1px solid #dddddd; padding: 10px;" >
+                                        </textarea>
 
                                     </div><!-- /.box-body -->
                                     <div class="box-footer text-right">
