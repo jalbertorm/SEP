@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!--ESTE ARCHIVO ES EL FORMULARIO PARA EL PDF-->
 <!DOCTYPE html>
 <html>

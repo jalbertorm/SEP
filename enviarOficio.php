@@ -1,4 +1,5 @@
 <?php
+session_start(); 
 include("sources/funciones.php");
 if ($_GET) {
     $noOficio = $_GET['noOficio'];

@@ -1,5 +1,6 @@
 <!--ESTE ARCHIVO GUARDA EL REGISTRO Y CREA EL PDF-->
 <?php
+session_start();
 ob_start();
 include("sources/funciones.php");
 

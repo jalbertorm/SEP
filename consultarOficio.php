@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php include ("sources/funciones.php"); ?>
 <!DOCTYPE html>
 <html>
