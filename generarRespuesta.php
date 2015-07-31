@@ -1,10 +1,16 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+include("sources/funciones.php");
+if($_SESSION["Activa"]){
+		//su codigo total
+	
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <?php include ('sources/template/head.php'); ?>
-        
-        
+
+
     </head>
     <body class="skin-black-light sidebar-mini">
         <!-- Site wrapper -->
@@ -30,7 +36,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="generarOficio.php"><i class="fa fa-circle-o"></i> Redactar Oficio</a></li>
-                                <li><a href="oficio1.php"><i class="fa fa-circle-o"></i> Oficios Enviados</a></li>
+                                <li><a href="consultarOficio.php"><i class="fa fa-circle-o"></i> Oficios Enviados</a></li>
                             </ul>
                         </li>
                         <li class="treeview active">
@@ -56,7 +62,7 @@
 
                 <!-- Main content -->
                 <section class="content">
-                    
+
                     <div class="row">
                         <!-- left column -->
                         <div class="col-md-10 col-md-offset-1">
@@ -68,7 +74,7 @@
                                         <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
                                     </div>
                                 </div>
-                                 
+
                                 <form action="guardarRespuesta.php" method="post">
                                     <div class="box-body">
                                         <!--
@@ -106,3 +112,9 @@
         <?php include ('sources/template/scripts.php'); ?>
     </body>
 </html>
+
+<?php 
+	}else{
+    	redireccionar();
+	}
+?>

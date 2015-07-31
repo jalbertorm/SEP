@@ -1,71 +1,64 @@
 <?php
 session_start();
 
-if ($_SESSION["Activa"] && $_POST) {
+if ($_SESSION["Activa"] && $_POST && $_GET) {
 
     include("sources/funciones.php");
     require("sources/Query.inc");
 
-    $query = new Query();
 
-    /*
-      $noOficio = __($_POST["noOficio"]);
-     * 
-     * $vR_id = $_POST['idOficio'];
-     */
-    $vR_id = __($_POST['idOficio']);
+$query = new Query();
 
-    $mail = $query->select("mailCiudadano ml", "oficio", "idOficio='$vR_id'");
+/*
+$noOficio = __($_POST["noOficio"]);
+ * 
+ * $vR_id = $_POST['idOficio'];
+ */
+$vR_id = __($_POST['idOficio']);
 
-    /*
-      $v_fecha=$_POST['fecha'];
-     */
-    $v_asunto = __($_POST['asunto']);
-    $v_redaccion = __($_POST['redaccion']);
+$mail = $query->select("o.mailCiudadano ml, r.asunto asunto, r.redaccion redaccion", "oficio o, respuesta r", "idOficio='$vR_id'");
 
-
-
+/*
+  $v_fecha=$_POST['fecha'];
+ */
+$v_asunto = __($_POST['asunto']);
+$v_redaccion = __($_POST['redaccion']);
 
 
-    if ($query->insert("respuesta", "fecha, asunto, redaccion, oficio_idOficio", "now(), '$v_asunto', '$v_redaccion', 2")) {
-
-        /* si realiza la insercion, tambien envia el correo */
 
 
-        if ($mail) {
-            foreach ($mail as $m) {
-                $correo = $m->ml;
-            }
+
+if ($query->insert("respuesta", "fecha, asunto, redaccion, oficio_idOficio", "now(), '$v_asunto', '$v_redaccion', 2")) {
+
+    /* si realiza la insercion, tambien envia el correo */
+
+
+    if ($mail) {
+        foreach ($mail as $m) {
+            $correo = $m->ml;
         }
+    }
 
-        require_once('sources/AttachMailer.php');
+    require_once('sources/AttachMailer.php');
 
-        /*
-          "correo origen", "correo destino", "asunto", "cuerpo del mensaje"
-         */
+    /*
+      "correo origen", "correo destino", "asunto", "cuerpo del mensaje"
+     */
 
-        $mailer = new AttachMailer("mar_d_estrella@hotmail.com", "luz_rebollo@hotmail.com", "enviando", "C:  Fulanito de tal  , Se le informa que que la respuesta a su petición es la siguiente: " . $v_redaccion);
-
-
-        $res = ($mailer->send() ? "OK" : "error");
+    $mailer = new AttachMailer("mar_d_estrella@hotmail.com", "luz_rebollo@hotmail.com", "enviando", "C:  Fulanito de tal  , Se le informa que que la respuesta a su petición es la siguiente: " . $v_redaccion);
 
 
-        if ($res == "OK") {
+    $res = ($mailer->send() ? "OK" : "error");
 
-            $respuesta = '
+
+    if ($res == "OK") {
+
+        $respuesta = '
   <img src="images/ok.png" width="100">
   <h4>
-    Respuesta enviada correctamente
+    Respuesta re-enviada correctamente
   </h4>
   ';
-        } else {
-            $respuesta = '
-  <img src="images/error.png" width="100">
-  <h4>
-    Ha ocurrido un error
-  </h4>
-  ';
-        }
     } else {
         $respuesta = '
   <img src="images/error.png" width="100">
@@ -74,33 +67,20 @@ if ($_SESSION["Activa"] && $_POST) {
   </h4>
   ';
     }
+} else {
+    $respuesta = '
+  <img src="images/error.png" width="100">
+  <h4>
+    Ha ocurrido un error
+  </h4>
+  ';
+}
 
 
-
-    /* 	
-      $comprobante="comprobantes/folio_".$folio.".pdf";
-      $mailer->attachFile($comprobante);
+?>
 
 
-
-      if(file_exists($comprobante)){
-      $res=($mailer->send() ? "OK": "error");
-      }
-
-      if($res=="OK"){
-      $respuesta= "<center><img src='images/ok.png' width='100'></center>
-      <br><center><h1><span>Comprobante enviado correctamente</span></h1></center>";
-      }
-      else{
-      $respuesta="<h1><span>Error al enviar el Comprobante</span></h1></p>";
-      }
-
-
-     */
-    ?>
-
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html>
         <head>
             <?php include ('sources/template/head.php'); ?>
@@ -161,7 +141,7 @@ if ($_SESSION["Activa"] && $_POST) {
             <?php include ('sources/template/scripts.php'); ?>
         </body>
     </html>
-
+    
     <?php
 } else {
     redireccionar();

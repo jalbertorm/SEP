@@ -1,5 +1,10 @@
-<?php session_start(); ?>
-<?php include ("sources/funciones.php"); ?>
+<?php 
+session_start(); 
+include("sources/funciones.php");
+if($_SESSION["Activa"]){
+		//su codigo total
+	
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,7 +34,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="generarOficio.php"><i class="fa fa-circle-o"></i> Redactar Oficio</a></li>
-                                <li><a href="oficio1.php"><i class="fa fa-circle-o"></i> Oficios Enviados</a></li>
+                                <li><a href="consultarOficio.php"><i class="fa fa-circle-o"></i> Oficios Enviados</a></li>
                             </ul>
                         </li>
                         <li class="treeview active">
@@ -86,3 +91,8 @@
 
     </body>
 </html>
+<?php 
+	}else{
+    	redireccionar();
+	}
+?>

@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php
 session_start();
 
@@ -64,7 +63,7 @@ function tablaRespuesta() {
              * **error de consulta en el contenedor***
               echo "<td><a  class='iframe' href='consultaColorBox.php?id=idRespuesta=$regC->idRespuesta'>Editar</a></td>";
              */
-            ?><td><a href='eliminarEmpleado.php?idEmpleado1=<?php echo $regC->idEmpleado1; ?>' onClick="return confirm('¿Está seguro?');"><i class='fa fa-share fa' title='Re-enviar'></i></a></td><?php
+            ?><td><a href='reenviarRespuesta.php?idEmpleado1=<?php echo $regC->idEmpleado1; ?>' onClick="return confirm('¿Está seguro?');"><i class='fa fa-share fa' title='Re-enviar'></i></a></td><?php
             echo "</tr>";
 
 

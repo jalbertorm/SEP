@@ -1,5 +1,5 @@
-<?php session_start(); ?>
 <?php 
+session_start();
     include_once("sources/funciones.php"); 
     $id = $_GET["id"];
 ?>
