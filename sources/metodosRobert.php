@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION["Activa"]){
+
 function enviarOficio($noOficio, $mailCiudadano, $mail1, $mail2, $mail3, $mail4, $asunto) {
     echo "<script language='JavaScript' type='text/javascript'>";
     echo "function redireccionar(){";
@@ -58,7 +58,5 @@ function tablaOficios() {
         echo "</tfoot>";
         echo "</table>";
     }
-}}else{
-    	redireccionar();
-	}
+}
 ?>
