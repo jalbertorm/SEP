@@ -38,6 +38,7 @@ session_destroy();
                                     <h3 class="box-title">Title</h3>
                                 </div>
                                 <div class="box-body text-center">
+                                    <img src="images/closed.png" width="100">
                                     <h4>Sesión concluida.</h4>
                                 </div><!-- /.box-body -->
                                 <div class="box-footer text-center">
