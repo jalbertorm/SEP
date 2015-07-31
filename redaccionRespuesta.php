@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php 
     include_once("sources/funciones.php"); 
     $id = $_GET["id"];
@@ -31,18 +32,25 @@
                 <section class="content">
                     <div class="row">
                         <!-- left column -->
-                        <div class="col-md-10 col-md-offset-1">
+                        <div class="col-md-6 col-md-offset-3">
                             <!-- Default box -->
                             <div class="box box-solid box-default">
                                 <div class="box-header with-border">
                                     <h3 class="box-title">Respuesta</h3>
                                 </div>
-                                <div class="box-body text-center">
+                                <div class="box-body text-justify">
+                                    <h4>
                                     <?php redaccionRespuesta($id); ?>
-                                    
+                                    </h4>
                                 </div><!-- /.box-body -->
                                 <div class="box-footer text-center">
-
+                                    <h2>
+                                    <a href='consultarRespuesta.php'><i class='fa fa-arrow-left' title='Ver Respuestas'></i></a>
+                                    <br>
+                                    </h2>
+                                    <!--
+                                    <label><h3>ATRAS</h3></label>
+                                    -->
                                 </div><!-- /.box-footer-->
                             </div><!-- /.box -->
                         </div>

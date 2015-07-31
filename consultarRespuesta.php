@@ -1,9 +1,9 @@
+<?php session_start(); ?>
 <?php include ("sources/funciones.php"); ?>
 <!DOCTYPE html>
 <html>
     <head>
         <?php include ('sources/template/head.php'); ?>
-		
     </head>
     <body class="skin-black-light sidebar-mini">
         <!-- Site wrapper -->
@@ -70,7 +70,7 @@
                                     <?php tablaRespuesta(); ?>
                                 </div><!-- /.box-body -->
                                 <div class="box-footer">
-                                    
+
                                 </div><!-- /.box-footer-->
                             </div><!-- /.box -->
                         </div>
@@ -83,6 +83,6 @@
         </div><!-- ./wrapper -->
 
         <?php include ('sources/template/scripts.php'); ?>
-		
+
     </body>
 </html>

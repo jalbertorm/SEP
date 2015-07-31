@@ -1,8 +1,8 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
         <?php include ('sources/template/head.php'); ?>
-        <script src='js/j_validarFormularioRespuesta.js'></script>
         
         
     </head>
@@ -56,6 +56,7 @@
 
                 <!-- Main content -->
                 <section class="content">
+                    
                     <div class="row">
                         <!-- left column -->
                         <div class="col-md-10 col-md-offset-1">
@@ -67,6 +68,7 @@
                                         <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
                                     </div>
                                 </div>
+                                 
                                 <form action="guardarRespuesta.php" method="post">
                                     <div class="box-body">
                                         <!--
@@ -76,13 +78,14 @@
                                             <!-- aqui cambiar el value, por lo que traeremos en PHP-->
                                             <input type="hidden" id="idOficio" name="idOficio" value="3">
                                             <label for="exampleInputEmail1">Asunto: </label>
-                                            <input type="text" class="form-control" id="asunto" name="asunto" required placeholder="Asunto" value="">
+                                            <input type="text" class="form-control" id="asunto" name="asunto" required placeholder="Asunto" required>
                                         </div>
-                                        <textarea class="textarea" placeholder="Redactar Respuesta"	value=""  id="redaccion" name="redaccion"				
+                                        <br>
+                                        <label for="exampleInputEmail1">Respuesta: </label>
+                                        <textarea class="textarea" placeholder="Redactar Respuesta"	id="redaccion" name="redaccion" required				
                                                   style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; 
-                                                  border: 1px solid #dddddd; padding: 10px;" >
+                                                  border: 1px solid #dddddd; padding: 10px;">
                                         </textarea>
-
                                     </div><!-- /.box-body -->
                                     <div class="box-footer text-right">
                                         <button type="reset" class="btn btn-default">Limpiar</button>

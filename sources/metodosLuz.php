@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 session_start();
 
@@ -40,8 +41,18 @@ function tablaRespuesta() {
             echo "<td>$regC->asunto</td>";
             echo "<td>$regC->fecha</td>";
 
-
-            echo "<td><a class='iframe' href='redaccionRespuesta.php?id=$regC->idR'><i class='fa fa-clipboard' title='Ver Respuesta'></i></a></td>";
+/*
+ echo "<td><a href='redaccionRespuesta.php?id=$regC->idR'><i class='fa fa-clipboard'></i></a></td>";
+ */
+            echo "<td><a href='redaccionRespuesta.php?id=$regC->idR'><i class='fa fa-clipboard' title='Ver Respuesta'></i></a></td>";
+            /*
+            echo "<td><a href='redaccionRespueta.php?id=$regC->idR'><i class='fa fa-clipboard'></i></a></td>";
+             * 
+             * la correcta--++++
+             * echo "<td><a class='iframe' href='redaccionRespuesta.php?id=$regC->idR'><i class='fa fa-clipboard' title='Ver Respuesta'></i></a></td>";
+             * 
+             * 
+            */
 
 
 
@@ -96,20 +107,6 @@ function tablaRespuesta() {
     }
 }
 
-function getRespuesta($id) {
-    include_once("Query.inc");
-    $query = new Query();
-
-    $registros = $query->select("o.folio folio, r.asunto asunto, r.fecha fecha", "oficio o, respuesta r", "idRespuesta=$id and o.noOficio=r.oficio_idOficio");
-
-    if ($registros) {
-        foreach ($registros as $reg) {
-
-            return array("v_folio" => "$reg->folio", "v_asunto" => "$reg->asunto", "v_fecha" => "$reg->fecha");
-        }
-    }
-}
-
 function redaccionRespuesta($id) {
 
 
@@ -124,4 +121,5 @@ function redaccionRespuesta($id) {
         }
     }
 }
+ 
 ?>
