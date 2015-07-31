@@ -21,21 +21,21 @@
             <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="images/foto.png" class="user-image" alt="User Image" />
-                    <span class="hidden-xs">Usuario Logueado</span>
+                    <span class="hidden-xs"><?php echo $_SESSION["Usuario"]; ?></span>
                 </a>
                 <ul class="dropdown-menu">
                     <!-- User image -->
                     <li class="user-header">
                         <img src="images/foto.png" class="img-circle" alt="User Image" />
                         <p>
-                            Usuario Logueado
+                            <?php echo $_SESSION["Usuario"]; ?>
                             <small>En línea</small>
                         </p>
                     </li>
                     <!-- Menu Footer-->
                     <li class="user-footer">
                         <div class="pull-right">
-                            <a href="#" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                            <a href="salir.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
                         </div>
                     </li>
                 </ul>

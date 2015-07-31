@@ -14,7 +14,7 @@
             </div>
             <br><br>
             <!-- User name -->
-            <div class="lockscreen-name">Inicio de Sesión</div>
+            <div class="lockscreen-name">Alta de Usuarios</div>
 
             <!-- START LOCK SCREEN ITEM -->
             <div class="lockscreen-item">
@@ -25,7 +25,7 @@
                 <!-- /.lockscreen-image -->
 
                 <!-- lockscreen credentials (contains the form) -->
-                <form class="lockscreen-credentials" action="validaLogin.php" method="POST">
+                <form class="lockscreen-credentials" action="guardarUsuario.php" method="POST">
                     <div class="input-group">
                         <input type="text" class="form-control" name="usu" placeholder="Usuario" required />
                         <input type="password" class="form-control" name="pass" placeholder="Contraseña" required />
