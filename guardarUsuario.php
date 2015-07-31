@@ -2,7 +2,7 @@
 
 include("sources/funciones.php");
 $usu = __(strtolower($_POST["usu"]));
-$pass = __(strtolower($_POST["pass"]));
+$pass = __($_POST["pass"]);
 $passEncriptado = sha1($pass);
 
 require("sources/Query.inc");
