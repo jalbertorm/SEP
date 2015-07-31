@@ -1,3 +1,7 @@
+<?php
+    include("sources/funciones.php");
+    if(!$_SESSION["Activa"]){
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,3 +52,8 @@
         <?php include ('sources/template/scripts.php'); ?>
     </body>
 </html>
+<?php 
+	}else{
+    	rSesionActiva();
+	}
+?>

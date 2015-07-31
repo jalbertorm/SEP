@@ -130,4 +130,11 @@ function eComprobante($folio,$mail){
     echo "setTimeout ('redireccionar()', 1)";
     echo "</script>";
 }
+function rSesionActiva(){
+    echo "<script language='JavaScript' type='text/javascript'>";
+    echo "function redireccionar(){";
+    echo "location.href='generarOficio.php';}";
+    echo "setTimeout ('redireccionar()', 1)";
+    echo "</script>";
+}
 ?>                           
