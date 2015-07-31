@@ -33,8 +33,8 @@ if($_SESSION["Activa"]){
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="active"><a href="generarOficio.php"><i class="fa fa-circle-o"></i> Redactar Oficio</a></li>
-                                <li><a href="consultarOficio.php"><i class="fa fa-circle-o"></i> Oficios Enviados</a></li>
+                                <li ><a href="generarOficio.php"><i class="fa fa-circle-o"></i> Redactar Oficio</a></li>
+                                <li class="active"><a href="consultarOficio.php"><i class="fa fa-circle-o"></i> Oficios Enviados</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
