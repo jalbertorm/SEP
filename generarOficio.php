@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+include("sources/funciones.php");
+if($_SESSION["Activa"]){
+
+?>
 <!--ESTE ARCHIVO ES EL FORMULARIO PARA EL PDF-->
 <!DOCTYPE html>
 <html>
@@ -29,7 +34,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li class="active"><a href="generarOficio.php"><i class="fa fa-circle-o"></i> Redactar Oficio</a></li>
-                                <li><a href="oficio1.php"><i class="fa fa-circle-o"></i> Oficios Enviados</a></li>
+                                <li><a href="consultarOficio.php"><i class="fa fa-circle-o"></i> Oficios Enviados</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -39,7 +44,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="generarRespuesta.php"><i class="fa fa-circle-o"></i> Redactar Respuesta</a></li>
-                                <li><a href="500.html"><i class="fa fa-circle-o"></i> Respuestas Enviadas</a></li>
+                                <li><a href="consultarRespuesta.php"><i class="fa fa-circle-o"></i> Respuestas Enviadas</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -269,8 +274,6 @@
                                             </div>
                                         </div>
 
-
-
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
@@ -304,7 +307,6 @@
                                             </div>  
                                         </div>
 
-
                                         <br>
                                         <div class="row">
                                             <div class="col-md-12">
@@ -314,7 +316,6 @@
                                                 </p>                    
                                             </div>  
                                         </div>
-
 
                                         <br>
                                         <div class="row">
@@ -337,8 +338,6 @@
                                                 </p>                    
                                             </div>  
                                         </div>
-
-
 
                                         <div class="row">
                                             <div class="col-md-12">
@@ -501,14 +500,11 @@
             });
         </script> 
 
-
-
         <script>
             $('#renglon1').hide();
             $('#renglon2').hide();
             $('#boton1').show();
             $('#boton2').hide();
-
 
             $(document).ready(function () {
                 $("#boton1").click(function () {
@@ -518,21 +514,18 @@
                     $('#boton2').show();
                 });
 
-
                 $("#boton2").click(function () {
                     $('#renglon1').show();
                     $('#renglon2').show();
                     $('#boton1').hide();
                     $('#boton2').hide();
                 });
-
-
-
             });
-
         </script>
-
-
-
     </body>
 </html>
+<?php 
+	}else{
+    	redireccionar();
+	}
+?>

@@ -1,7 +1,7 @@
 <?php
 session_start(); 
 include("sources/funciones.php");
-if ($_GET) {
+if($_SESSION["Activa"] && $_GET){
     $noOficio = $_GET['noOficio'];
     $mailCiudadano = $_GET['mailCiudadano'];
     $mail1 = $_GET['mail1'];

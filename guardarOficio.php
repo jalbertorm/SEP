@@ -1,8 +1,8 @@
-<!--ESTE ARCHIVO GUARDA EL REGISTRO Y CREA EL PDF-->
 <?php
 session_start();
-ob_start();
+//<!--ESTE ARCHIVO GUARDA EL REGISTRO Y CREA EL PDF-->
 include("sources/funciones.php");
+if($_SESSION["Activa"] && $_POST){
 
 $noOficio = __($_POST["noOficio"]);
 $ano = __($_POST["ano"]);
@@ -177,4 +177,8 @@ if ($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciud
 } else {
     $respuesta = "<center><h1><p>Error Al Insertar</p></h1>></center>";
 }
+
+}else{
+    	redireccionar();
+	}
 ?>

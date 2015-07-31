@@ -1,89 +1,98 @@
-<?php session_start(); ?>
-<?php include ("sources/funciones.php"); ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <?php include ('sources/template/head.php'); ?>
-		
-    </head>
-    <body class="skin-black-light sidebar-mini">
-        <!-- Site wrapper -->
-        <div class="wrapper">
+<?php 
+session_start(); 
+include("sources/funciones.php");
+if($_SESSION["Activa"]){
 
-            <header class="main-header">
-                <?php include ('sources/template/header.php'); ?>
-            </header>
+?>
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <?php include ('sources/template/head.php'); ?>
 
-            <!-- =============================================== -->
+        </head>
+        <body class="skin-black-light sidebar-mini">
+            <!-- Site wrapper -->
+            <div class="wrapper">
 
-            <!-- Left side column. contains the sidebar -->
-            <aside class="main-sidebar">
-                <!-- sidebar: style can be found in sidebar.less -->
-                <section class="sidebar">
+                <header class="main-header">
+                    <?php include ('sources/template/header.php'); ?>
+                </header>
+
+                <!-- =============================================== -->
+
+                <!-- Left side column. contains the sidebar -->
+                <aside class="main-sidebar">
+                    <!-- sidebar: style can be found in sidebar.less -->
+                    <section class="sidebar">
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="header">Menú principal</li>
-                        <li class="treeview">
+                        <li class="treeview active">
                             <a href="#">
                                 <i class="fa fa-file-text"></i> <span>Oficios</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="generarOficio.php"><i class="fa fa-circle-o"></i> Redactar Oficio</a></li>
-                                <li><a href="oficio1.php"><i class="fa fa-circle-o"></i> Oficios Enviados</a></li>
+                                <li class="active"><a href="generarOficio.php"><i class="fa fa-circle-o"></i> Redactar Oficio</a></li>
+                                <li><a href="consultarOficio.php"><i class="fa fa-circle-o"></i> Oficios Enviados</a></li>
                             </ul>
                         </li>
-                        <li class="treeview active">
+                        <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-envelope"></i> <span>Respuestas</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="generarRespuesta.php"><i class="fa fa-circle-o"></i> Redactar Respuesta</a></li>
-                                <li class="active"><a href="consultarRespuesta.php"><i class="fa fa-circle-o"></i> Respuestas Enviadas</a></li>
+                                <li><a href="consultarRespuesta.php"><i class="fa fa-circle-o"></i> Respuestas Enviadas</a></li>
                             </ul>
                         </li>
                     </ul>
                 </section>
-                <!-- /.sidebar -->
-            </aside>
+                    <!-- /.sidebar -->
+                </aside>
 
-            <!-- =============================================== -->
+                <!-- =============================================== -->
 
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                <?php include ('sources/template/titulo.php'); ?>
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
+                    <?php include ('sources/template/titulo.php'); ?>
 
-                <!-- Main content -->
-                <section class="content">
-                    <div class="row">
-                        <!-- left column -->
-                        <div class="col-md-12">
-                            <!-- Default box -->
-                            <div class="box box-solid box-default">
-                                <div class="box-header with-border">
-                                    <h3 class="box-title">Oficios</h3>
-                                    <div class="box-tools pull-right">
-                                        <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
+                    <!-- Main content -->
+                    <section class="content">
+                        <div class="row">
+                            <!-- left column -->
+                            <div class="col-md-12">
+                                <!-- Default box -->
+                                <div class="box box-solid box-default">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">Oficios</h3>
+                                        <div class="box-tools pull-right">
+                                            <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="box-body">
-                                    <?php tablaOficios(); ?>
-                                </div><!-- /.box-body -->
-                                
-                                <div class="box-footer">
-                                </div><!-- /.box-footer-->
-                            </div><!-- /.box -->
+                                    <div class="box-body">
+                                        <?php tablaOficios(); ?>
+                                    </div><!-- /.box-body -->
+
+                                    <div class="box-footer">
+                                    </div><!-- /.box-footer-->
+                                </div><!-- /.box -->
+                            </div>
                         </div>
-                    </div>
-                </section><!-- /.content -->
-            </div><!-- /.content-wrapper -->
+                    </section><!-- /.content -->
+                </div><!-- /.content-wrapper -->
 
-            <?php include ('sources/template/pie.php'); ?>
+                <?php include ('sources/template/pie.php'); ?>
 
-        </div><!-- ./wrapper -->
+            </div><!-- ./wrapper -->
 
-        <?php include ('sources/template/scripts.php'); ?>
-		
-    </body>
-</html>
+            <?php include ('sources/template/scripts.php'); ?>
+
+        </body>
+    </html>
+                <?php
+    } else {
+        redireccionar();
+    }
+    ?>        
