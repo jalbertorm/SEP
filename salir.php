@@ -1,12 +1,11 @@
 <?php
-
 session_start();
 session_destroy();
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <?php include ('sources/template/head.php'); ?>
+<?php include ('sources/template/head.php'); ?>
         <meta http-equiv="Refresh" content="3;url=login.php" />
     </head>
     <body class="skin-black-light sidebar-mini sidebar-collapse">
@@ -14,7 +13,7 @@ session_destroy();
         <div class="wrapper">
 
             <header class="main-header">
-                <?php include ('sources/template/header.php'); ?>
+<?php include ('sources/template/header.php'); ?>
             </header>
 
             <!-- =============================================== -->
@@ -25,7 +24,7 @@ session_destroy();
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
-                <?php include ('sources/template/titulo.php'); ?>
+<?php include ('sources/template/titulo.php'); ?>
 
                 <!-- Main content -->
                 <section class="content">
@@ -55,11 +54,11 @@ session_destroy();
                 </section><!-- /.content -->
             </div><!-- /.content-wrapper -->
 
-            <?php include ('sources/template/pie.php'); ?>
+<?php include ('sources/template/pie.php'); ?>
 
         </div><!-- ./wrapper -->
 
-        <?php include ('sources/template/scripts.php'); ?>
+<?php include ('sources/template/scripts.php'); ?>
     </body>
 </html>
 

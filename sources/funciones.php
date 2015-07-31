@@ -130,6 +130,4 @@ function eComprobante($folio,$mail){
     echo "setTimeout ('redireccionar()', 1)";
     echo "</script>";
 }
-
-
 ?>                           
