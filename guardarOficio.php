@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 //<!--ESTE ARCHIVO GUARDA EL REGISTRO Y CREA EL PDF-->
 include("sources/funciones.php");
@@ -37,7 +38,7 @@ if ($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciud
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         </head>
         <!--<body style="margin-top: 10px; margin-right: 0px; margin-left: 50px;">-->
-        <body>
+        <body>  <!--BACKGROUND="images/foto.png"--> 
         <center>
             <br>
             <table border="1" style="width: 90%" >

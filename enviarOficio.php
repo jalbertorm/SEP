@@ -12,7 +12,6 @@ if($_SESSION["Activa"] && $_GET){
 
     require_once('sources/AttachMailer.php');
 
-
     if ($mailCiudadano) {
         $mailer = new AttachMailer("trebor_08@hotmail.com", "$mailCiudadano", " $asunto" . $noOficio, "cuerpobb");
         $Oficio = 'Oficios/OficioNo' . $noOficio . '.pdf';

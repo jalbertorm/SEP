@@ -2,7 +2,6 @@
 session_start(); 
 include("sources/funciones.php");
 if($_SESSION["Activa"]){
-
 ?>
 <!--ESTE ARCHIVO ES EL FORMULARIO PARA EL PDF-->
 <!DOCTYPE html>
@@ -280,7 +279,7 @@ if($_SESSION["Activa"]){
                                                     <textarea class="textarea" placeholder="Asunto"					
                                                               style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; 
                                                               border: 1px solid #dddddd; padding: 10px;"
-                                                              id="asnto" name="asunto" required></textarea>
+                                                              id="asunto" name="asunto" required></textarea>
                                                 </div>
                                             </div>  
                                         </div>
