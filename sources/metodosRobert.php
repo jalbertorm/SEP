@@ -37,8 +37,8 @@ function tablaOficios() {
             echo "<td>$regC->noOficio</td>";
             echo "<td>$regC->folio</td>";
             echo "<td>$regC->fecha</td>";
-            echo "<td>$regC->ciudadano: $regC->mailCiudadano</td>";
-            echo "<td><a class='iframe' href='redaccionRespuesta.php?id=$regC->idR'><i class='fa fa-clipboard' title='Ver Respuesta'></i></a></td>";
+            echo "<td>$regC->ciudadano:  $regC->mailCiudadano</td>";
+            echo "<td><a class='iframe' href='Oficios/OficioNo$regC->noOficio.pdf' target='_blank'> ver PDF </</a></td>";
             ?><td><a href='eliminarEmpleado.php?idEmpleado1=<?php echo $regC->idEmpleado1; ?>' onClick="return confirm('¿Está seguro?');"><i class='fa fa-share fa' title='Re-enviar'></i></a></td><?php
             echo "</tr>";
             echo "</tr>";
