@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+/*
+ $id = $_GET["id"];
+ */
+
 if ($_SESSION["Activa"] && $_POST && $_GET) {
 
     include("sources/funciones.php");
@@ -9,23 +13,20 @@ if ($_SESSION["Activa"] && $_POST && $_GET) {
 
 $query = new Query();
 
-/*
-$noOficio = __($_POST["noOficio"]);
- * 
- * $vR_id = $_POST['idOficio'];
- */
 $vR_id = __($_POST['idOficio']);
 
+/*
+    $mail = $query->select("o.mailCiudadano ml, r.asunto asunto, r.redaccion redaccion", "oficio o, respuesta r", "idOficio='$vR_id'");
+ */
 $mail = $query->select("o.mailCiudadano ml, r.asunto asunto, r.redaccion redaccion", "oficio o, respuesta r", "idOficio='$vR_id'");
 
-/*
-  $v_fecha=$_POST['fecha'];
- */
 $v_asunto = __($_POST['asunto']);
 $v_redaccion = __($_POST['redaccion']);
 
 
-
+/*
+    if ($query->insert("respuesta", "fecha, asunto, redaccion, oficio_idOficio", "now(), '$v_asunto', '$v_redaccion', 2")) {
+ */
 
 
 if ($query->insert("respuesta", "fecha, asunto, redaccion, oficio_idOficio", "now(), '$v_asunto', '$v_redaccion', 2")) {

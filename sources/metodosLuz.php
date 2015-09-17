@@ -5,10 +5,6 @@ function tablaRespuesta() {
     include_once("Query.inc");
     $query = new Query();
 
-
-
-
-
     $regCupo = $query->select("r.idRespuesta idR, o.folio folio, r.asunto asunto, r.fecha fecha", "oficio o, respuesta r", "o.idOficio=r.oficio_idOficio");
 
     if ($regCupo) {
@@ -39,52 +35,16 @@ function tablaRespuesta() {
             echo "<td>$regC->folio</td>";
             echo "<td>$regC->asunto</td>";
             echo "<td>$regC->fecha</td>";
-
-/*
- echo "<td><a href='redaccionRespuesta.php?id=$regC->idR'><i class='fa fa-clipboard'></i></a></td>";
- */
             echo "<td><a href='redaccionRespuesta.php?id=$regC->idR'><i class='fa fa-clipboard' title='Ver Respuesta'></i></a></td>";
-            /*
-            echo "<td><a href='redaccionRespueta.php?id=$regC->idR'><i class='fa fa-clipboard'></i></a></td>";
-             * 
-             * la correcta--++++
-             * echo "<td><a class='iframe' href='redaccionRespuesta.php?id=$regC->idR'><i class='fa fa-clipboard' title='Ver Respuesta'></i></a></td>";
-             * 
-             * 
-            */
-
-
-
-
-            /*
-              echo "<td><a  href='f_editarEmpleado.php?idEmpleado1=$regC->idEmpleado1'>Editar</a></td>";
-              <p><a class='iframe' href="consultaColorBox.php?id=3">Inline HTML</a></p>
-
-             * **error de consulta en el contenedor***
-              echo "<td><a  class='iframe' href='consultaColorBox.php?id=idRespuesta=$regC->idRespuesta'>Editar</a></td>";
-             */
-            ?><td><a href='reenviarRespuesta.php?idEmpleado1=<?php echo $regC->idEmpleado1; ?>' onClick="return confirm('¿Está seguro?');"><i class='fa fa-share fa' title='Re-enviar'></i></a></td><?php
+            ?><td><a href=#generarRespuesta.php><i class='fa fa-share fa' title='generarRespuesta'></i></a></td><?php
             echo "</tr>";
-
-
-
-            /* }      LLAVE DEL IF */
-
-
-
             echo "</tr>";
 
             $i++;
         }
 
-
-
-
         echo "</tbody>";
-
-
         /* ANEXANDO EL TFOOT */
-
         echo "<tfoot>";
         /* echo "<table id='example1' class='table table-bordered table-striped'>"; */
         echo "<thead>";
@@ -92,16 +52,12 @@ function tablaRespuesta() {
         echo "<th>N° DE OFICIO</th>";
         echo "<th>ASUNTO</th>";
         echo "<th>FECHA</th>";
-
         echo "<th>VER</th>";
         echo "<th>RE-ENVIAR</th>";
-
         echo "</tr>";
         echo "</thead>";
         echo "</tfoot>";
         /* FIN DEL TFOOT */
-
-
         echo "</table>";
     }
 }
@@ -120,5 +76,8 @@ function redaccionRespuesta($id) {
         }
     }
 }
- 
+
+
+
+
 ?>

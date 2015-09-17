@@ -2,15 +2,11 @@
 session_start(); 
 include("sources/funciones.php");
 if($_SESSION["Activa"]){
-		//su codigo total
-	
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <?php include ('sources/template/head.php'); ?>
-
-
     </head>
     <body class="skin-black-light sidebar-mini">
         <!-- Site wrapper -->
@@ -45,7 +41,7 @@ if($_SESSION["Activa"]){
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="active"><a href="generarRespuesta.php"><i class="fa fa-circle-o"></i> Redactar Respuesta</a></li>
+                                <li class="active"><a href="identificarOficio.php"><i class="fa fa-circle-o"></i> Redactar Respuesta</a></li>
                                 <li><a href="consultarRespuesta.php"><i class="fa fa-circle-o"></i> Respuestas Enviadas</a></li>
                             </ul>
                         </li>
@@ -88,10 +84,21 @@ if($_SESSION["Activa"]){
                                         </div>
                                         <br>
                                         <label for="exampleInputEmail1">Respuesta: </label>
-                                        <textarea class="textarea" placeholder="Redactar Respuesta"	id="redaccion" name="redaccion" required				
+                                        
+                                        <textarea  class="textarea" placeholder="Redactar Respuesta" id="limite" name="redaccion" required				
+                                                  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; 
+                                                  border: 1px solid #dddddd; padding: 10px;">
+                                          
+                                        </textarea>
+                                      
+                                        
+                                        <!--
+                                        <textarea cols="40" rows="10" id="limite"></textarea>
+                                        <textarea class="textarea" placeholder="Redactar Respuesta" id="redaccion" name="redaccion" required				
                                                   style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; 
                                                   border: 1px solid #dddddd; padding: 10px;">
                                         </textarea>
+                                        -->
                                     </div><!-- /.box-body -->
                                     <div class="box-footer text-right">
                                         <button type="reset" class="btn btn-default">Limpiar</button>
@@ -110,6 +117,22 @@ if($_SESSION["Activa"]){
         </div><!-- ./wrapper -->
 
         <?php include ('sources/template/scripts.php'); ?>
+        <script>
+    
+    
+    function maximo() {
+	//se almacena el texto que contiene el textarea al que se enlaza el evento, referenciado como "this"
+	var texto = this.value;
+	//si la longitud del texto ya es mayor que 255, se devuelve false cancelando el evento
+	if (texto.length > 10) {
+		this.value = texto.substr(0,10);
+		return false;
+	}
+}
+window.onload = function() {
+	document.getElementById ('limite').addEventListener("keyup", maximo , false);
+}
+</script>
     </body>
 </html>
 
