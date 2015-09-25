@@ -7,7 +7,7 @@ if ($_SESSION["Activa"]) {
     <!DOCTYPE html>
     <html>
         <head>
-                <?php include ('sources/template/head.php'); ?>            
+            <?php include ('sources/template/head.php'); ?>            
         </head>
         <body class="skin-black-light sidebar-mini">
             <!-- Site wrapper -->
@@ -276,14 +276,18 @@ if ($_SESSION["Activa"]) {
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        
-                                                        <div id="info">Puede escribir Maximo 100 caracteres</div>
+
                                                         <textarea 
-                                                                  rows="6" cols="30" 
-                                                                  class="textarea" placeholder="Asunto" maxlength="50"					
-                                                                  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; 
-                                                                  border: 1px solid #dddddd; padding: 10px;"
-                                                                  name="asunto" required></textarea>
+                                                            rows="6" cols="30" 
+                                                            class="textarea" placeholder="Asunto"					
+                                                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; 
+                                                            border: 1px solid #dddddd; padding: 10px;"
+                                                            name="asunto" required>
+                                                        </textarea>
+                                                        <div id="divAux"></div>
+                                                        <div hidden="true">
+                                                            <input type="text" value="OK" id="inputAux" required>
+                                                        </div>
                                                     </div>
                                                 </div>  
                                             </div>
