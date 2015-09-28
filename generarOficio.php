@@ -85,7 +85,7 @@ if ($_SESSION["Activa"]) {
                                                         Oficio número SEP / DFSEPMEX / 
                                                         <input id="noOficio" name="noOficio" style="width: 40px" type="text" required>
                                                         /
-                                                        <input name="ano" style="width: 40px" type="text" required>
+                                                        <input id="ano" name="ano" style="width: 40px" type="text" required>
                                                     </p>
                                                     <div id="rnoOficio"></div>
                                                 </div>
@@ -557,6 +557,11 @@ if ($_SESSION["Activa"]) {
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#noOficio').numeric({decimal: false, negative: false});
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#ano').numeric({decimal: false, negative: false});
             });
         </script>
         
