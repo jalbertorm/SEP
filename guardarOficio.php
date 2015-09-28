@@ -26,6 +26,8 @@ $gracias = "Por lo anterior, solicito de no existir inconveniente, gire sus amab
           Correspondiente a fin de brindar la atención que proceda a dicho requerimiento, rogando 
           Respetuosamente sea tan gentil de enviar a esta Delegación el seguimiento del presente asunto.";
 
+$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+
 require("sources/Query.inc");
 $query = new Query();
 
@@ -62,8 +64,8 @@ $html = '
         Oficio número SEP/DFSEPMEX/'.$noOficio.'/'.$ano.'
     </p>
     <br>
-    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; float: right; width: 37%;">
-        Toluca, México., '.$fecha.'.
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; float: right; width: 45%; text-align: right;">
+        Toluca, México., '.date('d',strtotime($fecha)).' de '.$meses[date('n' ,strtotime($fecha))-1].' de '.date('Y',strtotime($fecha)).'.
     </p>
     <br>
     <br>
