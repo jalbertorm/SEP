@@ -564,6 +564,11 @@ if ($_SESSION["Activa"]) {
                 $('#ano').numeric({decimal: false, negative: false});
             });
         </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#telCiudadano').numeric({decimal: false, negative: false});
+            });
+        </script>
         
         </body>
     </html>
