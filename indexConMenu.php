@@ -36,7 +36,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="generarRespuesta.php"><i class="fa fa-circle-o"></i> Redactar Respuesta</a></li>
+                                <li><a href="identificarOficio.php"><i class="fa fa-circle-o"></i> Redactar Respuesta</a></li>
                                 <li><a href="500.html"><i class="fa fa-circle-o"></i> Respuestas Enviadas</a></li>
                             </ul>
                         </li>
