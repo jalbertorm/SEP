@@ -60,3 +60,4 @@
         $("#example1").DataTable();
     });
 </script>
+<script type="text/javascript" src="js/jquery.numeric.js"></script>

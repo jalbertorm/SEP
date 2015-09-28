@@ -554,6 +554,12 @@ if ($_SESSION["Activa"]) {
 		});    
 	</script>
         
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#noOficio').numeric({decimal: false, negative: false});
+            });
+        </script>
+        
         </body>
     </html>
     <?php
