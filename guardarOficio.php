@@ -63,7 +63,6 @@ $html = '
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; float: left; width: 50%;">
         Oficio número SEP/DFSEPMEX/'.$noOficio.'/'.$ano.'
     </p>
-    <br>
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; float: right; width: 45%; text-align: right;">
         Toluca, México., '.date('d',strtotime($fecha)).' de '.$meses[date('n' ,strtotime($fecha))-1].' de '.date('Y',strtotime($fecha)).'.
     </p>
@@ -151,7 +150,7 @@ $header = '
         &nbsp;&nbsp;SECRETARÍA DE EDUCACIÓN PÚBLICA<br>
         &nbsp;&nbsp;Coordinación General de Delegaciones Federales<br>
         &nbsp;&nbsp;de la Secretaría de Educación Pública<br>
-        &nbsp;&nbsp;elegación Federal de la Secretaría de Educación<br>
+        &nbsp;&nbsp;Delegación Federal de la Secretaría de Educación<br>
         &nbsp;&nbsp;Pública en el Estado de México
     </p>
 </div>

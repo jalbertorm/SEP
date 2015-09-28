@@ -10,7 +10,8 @@ function __($var)
 {
 	$dato =	htmlentities($var,ENT_QUOTES,'UTF-8');
 	$dato = stripslashes($dato);
-	return str_replace("&lt;","<",str_replace("&gt;",">",$dato));
+	$dato = str_replace("&lt;","<",str_replace("&gt;",">",$dato));
+        return str_replace("&amp;","&",$dato);
 }
 
 function esEmail($email = "")
