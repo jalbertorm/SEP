@@ -83,10 +83,11 @@ if ($_SESSION["Activa"]) {
                                                 <div class="col-md-12">
                                                     <p>
                                                         Oficio número SEP / DFSEPMEX / 
-                                                        <input name="noOficio" style="width: 40px" type="text" required>
+                                                        <input id="noOficio" name="noOficio" style="width: 40px" type="text" required>
                                                         /
                                                         <input name="ano" style="width: 40px" type="text" required>
                                                     </p>
+                                                    <div id="rnoOficio"></div>
                                                 </div>
                                             </div>
 
@@ -529,6 +530,30 @@ if ($_SESSION["Activa"]) {
                     });
                 });
             </script>
+            
+            <script type="text/javascript">
+		$(document).ready(function() {    
+		    $('#noOficio').blur(function(){
+
+        		var noOficio = $(this).val();        
+		        var dataString = 'noOficio='+noOficio;
+
+        		$.ajax({
+		            type: "POST",
+        		    url: "check_noOficio.php",
+		            data: dataString,
+        		    success: function(data) {
+                		$('#rnoOficio').fadeIn(500).html(data);
+						var result = $.trim(data);
+						if(result=="<font style=' color: #CC0000'>El numero de oficio ya existe, intenta nuevamente</font>"){
+							$('#noOficio').val("");
+						}
+        		    }			
+		        });
+		    });              
+		});    
+	</script>
+        
         </body>
     </html>
     <?php
