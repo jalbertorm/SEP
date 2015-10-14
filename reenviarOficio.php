@@ -2,46 +2,56 @@
 session_start();
 include("sources/funciones.php");
 if ($_SESSION["Activa"] && $_GET) {
-    $noOficio = $_GET['noOficio'];
-    $mailCiudadano = $_GET['mailCiudadano'];
-    $mail1 = $_GET['mail1'];
-    $mail2 = $_GET['mail2'];
-    $mail3 = $_GET['mail3'];
-    $mail4 = $_GET['mail4'];
-    $asunto = $_GET['asunto'];
+    $idOficio = __($_GET['idOficio']);
+
+    //consulta oficio en la Base de Datos
+    require("sources/Query.inc");
+    $query = new Query();
+    $regCupo = $query->select("noOficio, asunto, mailCiudadano, mail1, mail2, mail3, mail4", "oficio", "idOficio=$idOficio");
+    if ($regCupo) {
+        foreach ($regCupo as $r) {
+            $noOficio = $r->noOficio;
+            $mailCiudadano = $r->mailCiudadano;
+            $mail1 = $r->mail1;
+            $mail2 = $r->mail2;
+            $mail3 = $r->mail3;
+            $mail4 = $r->mail4;
+            $asunto = $r->asunto;
+        }
+    }
 
     require_once('sources/AttachMailer.php');
 
     if ($mailCiudadano) {
-        $mailer = new AttachMailer("no-replay@dycesa.com", "$mailCiudadano", "Oficio_" . $noOficio, "Cuerpo del Email");
+        $mailer = new AttachMailer("no-replay@dycesa.com", "$mailCiudadano", " $asunto" . $noOficio, "cuerpobb");
         $Oficio = 'Oficios/Oficio_' . $noOficio . '.pdf';
         $mailer->attachFile($Oficio);
 
         if (file_exists($Oficio)) {
             $res = ($mailer->send() ? "OK" : "$mailCiudadano");
-            if($res){
-                $correo=$mailCiudadano;
+            if ($res) {
+                $correo = $mailCiudadano;
             }
             if ($mail1) {
-                $mailer = new AttachMailer("no-replay@dycesa.com", "$mail1", "Oficio_" . $noOficio, "Cuerpo del Email");
+                $mailer = new AttachMailer("no-replay@dycesa.com", "$mail1", " $asunto" . $noOficio, "cuerpobb");
                 $mailer->attachFile($Oficio);
                 $res1 = ($mailer->send() ? "OK" : "$mail1");
                 $correo.=' ' . $mail1;
             }
             if ($mail2) {
-                $mailer = new AttachMailer("no-replay@dycesa.com", "$mail2", "Oficio_" . $noOficio, "Cuerpo del Email");
+                $mailer = new AttachMailer("no-replay@dycesa.com", "$mail2", " $asunto" . $noOficio, "cuerpobb");
                 $mailer->attachFile($Oficio);
                 $res1 = ($mailer->send() ? "OK" : "$mail2");
                 $correo.=' ' . $mail2;
             }
             if ($mail3) {
-                $mailer = new AttachMailer("no-replay@dycesa.com", "$mail3", "Oficio_" . $noOficio, "Cuerpo del Email");
+                $mailer = new AttachMailer("no-replay@dycesa.com", "$mail3", " $asunto" . $noOficio, "cuerpobb");
                 $mailer->attachFile($Oficio);
                 $res1 = ($mailer->send() ? "OK" : "$mail3");
                 $correo.=' ' . $mail3;
             }
             if ($mail4) {
-                $mailer = new AttachMailer("no-replay@dycesa.com", "$mail4", "Oficio_" . $noOficio, "Cuerpo del Email");
+                $mailer = new AttachMailer("no-replay@dycesa.com", "$mail4", " $asunto" . $noOficio, "cuerpobb");
                 $mailer->attachFile($Oficio);
                 $res1 = ($mailer->send() ? "OK" : "$mail4");
                 $correo.=' ' . $mail4;
@@ -52,7 +62,7 @@ if ($_SESSION["Activa"] && $_GET) {
             $respuesta = '
                      <img src="images/ok.png" width="100">
                      <h4>
-                        Oficio enviado correctamente a: '.$correo.'
+                        Oficio enviado correctamente a: ' . $correo . '
                      </h4>';
         } else {
             if ($res != 'OK') {

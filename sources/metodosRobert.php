@@ -13,7 +13,7 @@ function tablaOficios() {
     include_once("Query.inc");
     $query = new Query();
 
-    $regConsulta = $query->select("noOficio,folio,fecha,mailCiudadano,ciudadano", "oficio", "1");
+    $regConsulta = $query->select("idOficio, noOficio,folio,fecha,mailCiudadano,ciudadano", "oficio", "1");
 
     if ($regConsulta) {
         $i = 0;
@@ -33,13 +33,16 @@ function tablaOficios() {
 
         echo "<tbody>";
         foreach ($regConsulta as $regC) {
+            $fechaFormato=$regC->fecha;
+            $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+            
             echo "<tr>";
             echo "<td>$regC->noOficio</td>";
             echo "<td>$regC->folio</td>";
-            echo "<td>$regC->fecha</td>";
+            echo "<td>".date('d',strtotime($fechaFormato))." de ".$meses[date('n' ,strtotime($fechaFormato))-1]." de ".date('Y',strtotime($fechaFormato))."</td>";
             echo "<td>$regC->ciudadano:  $regC->mailCiudadano</td>";
-            echo "<td><a class='iframe' href='Oficios/OficioNo$regC->noOficio.pdf' target='_blank'> ver PDF </</a></td>";
-            ?><td><a href='eliminarEmpleado.php?idEmpleado1=<?php echo $regC->idEmpleado1; ?>' onClick="return confirm('¿Está seguro?');"><i class='fa fa-share fa' title='Re-enviar'></i></a></td><?php
+            echo "<td><a class='iframe' href='Oficios/Oficio_$regC->noOficio.pdf' target='_blank'> ver PDF </</a></td>";
+            ?><td><a href='reenviarOficio.php?idOficio=<?php echo $regC->idOficio; ?>' onClick="return confirm('¿Está seguro de reenviar este oficio?');"><i class='fa fa-share fa' title='Re-enviar'></i></a></td><?php
             echo "</tr>";
             echo "</tr>";
             $i++;

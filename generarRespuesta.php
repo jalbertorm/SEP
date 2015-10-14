@@ -1,7 +1,8 @@
 <?php
 session_start();
 include("sources/funciones.php");
-if ($_SESSION["Activa"]) {
+if ($_SESSION["Activa"] && $_GET) {
+    $idOficio=__($_GET['idOficio']);
     ?>
     <!DOCTYPE html>
     <html>
@@ -78,7 +79,7 @@ if ($_SESSION["Activa"]) {
                                             -->
                                             <div class="form-group">
                                                 <!-- aqui cambiar el value, por lo que traeremos en PHP-->
-                                                <input type="hidden" id="idOficio" name="idOficio" value="3">
+                                                <input type="hidden" id="idOficio" name="idOficio" value="<?php echo $idOficio; ?>">
                                                 <label for="exampleInputEmail1">Asunto: </label>
                                                 <input type="text" class="form-control" id="asunto" name="asunto" required placeholder="Asunto" required>
                                             </div>

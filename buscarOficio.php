@@ -10,6 +10,7 @@ if ($_REQUEST) {
     $regCupo = $query->select("idOficio idOficio,noOficio nOficio,asunto asunto,fecha fecha, status status", "oficio", "noOficio=$nOficio and status=2");
     $regCupo2 = $query->select("idOficio idOficio,noOficio nOficio,status status", "oficio", "noOficio=$nOficio and status=3");
     if ($regCupo) {
+        
         $i = 0;
         echo "<table class='table table-condensed'>";
         echo "<thead>";
@@ -29,12 +30,15 @@ if ($_REQUEST) {
         echo "<tbody>";
 
         foreach ($regCupo as $regC) {
+            $fechaFormato=$regC->fecha;
+            $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+            
             echo "<tr>";
             echo "<td>$regC->nOficio</td>";
             /*echo "<td>$regC->idOficio</td>";*/
             echo "<td>$regC->asunto</td>";
-            echo "<td>$regC->fecha</td>";
-            ?><td style="text-align:center"><a href='generarRespuesta.php?idOficio=<?php echo $regC->idOficio ?>'><i  class='fa-pencil-square-o' title='Generar Respueta'></i></a></td><?php
+            echo "<td>".date('d',strtotime($fechaFormato))." de ".$meses[date('n' ,strtotime($fechaFormato))-1]." de ".date('Y',strtotime($fechaFormato))."</td>";
+            ?><td style="text-align:center"><a href='generarRespuesta.php?idOficio=<?php echo $regC->idOficio ?>'><i  class='fa fa-pencil-square-o' title='Generar Respueta'></i></a></td><?php
             echo "</tr>";
             echo "</tr>";
 

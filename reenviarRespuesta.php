@@ -88,7 +88,7 @@ if ($query->insert("respuesta", "fecha, asunto, redaccion, oficio_idOficio", "no
 
             <meta charset="UTF-8">
             <title>Registro Respuesta></title>
-            <meta http-equiv="Refresh" content="3;url=consultarRespuesta.php" />
+            <meta http-equiv="Refresh" content="2;url=consultarRespuesta.php" />
         </head>
         <body class="skin-black-light sidebar-mini sidebar-collapse">
             <!-- Site wrapper -->

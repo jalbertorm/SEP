@@ -22,7 +22,7 @@
     <head>
         <?php include ('sources/template/head.php'); ?>
         <!-- DESCOMENTAR xD Y PONER EL ARCHIVO CORRESPONDIENTE (VER carga de trabajo.xls)-->
-        <!--<meta http-equiv="Refresh" content="3;url=aRegistro.php" />-->
+        <!--<meta http-equiv="Refresh" content="2;url=aRegistro.php" />-->
     </head>
     <body class="skin-black-light sidebar-mini sidebar-collapse">
         <!-- Site wrapper -->

@@ -89,7 +89,7 @@ if ($_SESSION["Activa"]) {
 
                                         <div class="form-group">
                                             <!--<div id="rMail"></div> -->
-                                            <div class="input-group input-group-sm col-md-6 col-md-offset-3" id="tablaBuscarO">
+                                            <div class="input-group input-group-sm col-md-10 col-md-offset-1" id="tablaBuscarO">
 
                                                 <!-- aqui iria buscarOficio, si se trae de metodosLuz 
                                                               buscarOficio();-->

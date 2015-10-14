@@ -15,7 +15,12 @@ if ($_SESSION["Activa"] && $_POST) {
      */
     $vR_id = __($_POST['idOficio']);
 
-    $mail = $query->select("mailCiudadano ml", "oficio", "idOficio='$vR_id'");
+    $mailQuery = $query->select("mailCiudadano m", "oficio", "idOficio='$vR_id'");
+    if($mailQuery){
+        foreach ($mailQuery as $m){
+            $mail=$m->m;
+        }
+    }
 
     /*
       $v_fecha=$_POST['fecha'];
@@ -27,7 +32,7 @@ if ($_SESSION["Activa"] && $_POST) {
 
 
 
-    if ($query->insert("respuesta", "fecha, asunto, redaccion, oficio_idOficio", "now(), '$v_asunto', '$v_redaccion', 2")) {
+    if ($query->insert("respuesta", "fecha, asunto, redaccion, oficio_idOficio", "now(), '$v_asunto', '$v_redaccion', $vR_id")) {
 
         /* si realiza la insercion, tambien envia el correo */
 
@@ -44,14 +49,14 @@ if ($_SESSION["Activa"] && $_POST) {
           "correo origen", "correo destino", "asunto", "cuerpo del mensaje"
          */
 
-        $mailer = new AttachMailer("mar_d_estrella@hotmail.com", "luz_rebollo@hotmail.com", "enviando", "C:  Fulanito de tal  , Se le informa que que la respuesta a su petición es la siguiente: " . $v_redaccion);
+        $mailer = new AttachMailer("no-replay@dycesa.com", "$mail", "Respuesta", "Por medio del presente, se le informa que que la respuesta a su petición es la siguiente: " . $v_redaccion);
 
 
         $res = ($mailer->send() ? "OK" : "error");
 
 
         if ($res == "OK") {
-
+            $query->update("oficio","status=3","idOficio=$vR_id");
             $respuesta = '
   <img src="images/ok.png" width="100">
   <h4>
@@ -107,7 +112,7 @@ if ($_SESSION["Activa"] && $_POST) {
 
             <meta charset="UTF-8">
             <title>Registro Respuesta></title>
-            <meta http-equiv="Refresh" content="3;url=consultarRespuesta.php" />
+            <meta http-equiv="Refresh" content="2;url=consultarRespuesta.php" />
         </head>
         <body class="skin-black-light sidebar-mini sidebar-collapse">
             <!-- Site wrapper -->

@@ -31,7 +31,7 @@ $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"
 require("sources/Query.inc");
 $query = new Query();
 
-if ($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciudadano, asunto, referencia, folio, mailCiudadano, telCiudadano, mail1, mail2, mail3, mail4, mail5", "'$noOficio', '$ano', '$fecha','$titulo', '$nombre', '$puesto', '$ciudadano', '$asunto','$referencia', '$folio','$mailCiudadano', '$telCiudadano', '$mail1', '$mail2', '$mail3', '$mail4', '$mail5'")) {
+if ($query->insert("oficio", "noOficio, ano, fecha, titulo, nombre, puesto, ciudadano, asunto, referencia, folio, mailCiudadano, telCiudadano, mail1, mail2, mail3, mail4, mail5, status", "'$noOficio', '$ano', '$fecha','$titulo', '$nombre', '$puesto', '$ciudadano', '$asunto','$referencia', '$folio','$mailCiudadano', '$telCiudadano', '$mail1', '$mail2', '$mail3', '$mail4', '$mail5', 2")) {
     $respuesta = "<center><h1><span>Agregado correctamente</span></h1></center>";
     
 $html = '
@@ -100,7 +100,9 @@ $html = '
         Delegación el Seguimiento del presente asunto.
         <br><br>
         Sin otro particular, me reitero a sus órdenes.
-        <br><br>
+        <div style="background-image: url(images/firmaPrueba.png);
+                background-size: 20%;
+                background-repeat: no-repeat;">
         ATENTAMENTE
         <br>
         SUFRAGIO EFECTIVO, NO REELECCIÓN
@@ -108,6 +110,7 @@ $html = '
         MTRO. GUILLERMO LEGORRETA MARTÍNEZ
         <br>
         DELEGADO
+        </div>
     </p>
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 8px; text-align: justify;">
         c.c.p. <b>Lic. Rubén Jésus Lara León</b>.- Coordinador General de Delegaciones Federales de la Secretaría de Educación Pública.- Presente.
@@ -174,8 +177,9 @@ $mpdf->showWatermarkImage = true;
 $mpdf->WriteHTML($html);
 
 
-$mpdf->Output('Oficios/OficioNoPruebaBB2.pdf',F);
+$mpdf->Output('Oficios/Oficio_'.$noOficio.'.pdf',F);
 //$mpdf->Output();
+enviarOficio($noOficio, $mailCiudadano, $mail1, $mail2, $mail3, $mail4, $asunto);
 
 exit;
 

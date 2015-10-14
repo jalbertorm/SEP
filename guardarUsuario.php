@@ -29,7 +29,7 @@ if($query->insert("login", "usuario, password, tipoUsu", "'$usu', '$passEncripta
 <html>
     <head>
         <?php include ('sources/template/head.php'); ?>
-        <meta http-equiv="Refresh" content="3;url=altaUsuario.php" />
+        <meta http-equiv="Refresh" content="2;url=altaUsuario.php" />
     </head>
     <body class="skin-black-light sidebar-mini sidebar-collapse">
         <!-- Site wrapper -->

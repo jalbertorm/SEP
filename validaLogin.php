@@ -47,9 +47,9 @@ if ($_POST) {
         <head>
             <?php include ('sources/template/head.php'); ?>
             <?php if ($login) { ?>
-                <meta http-equiv="Refresh" content="3;url=generarOficio.php" />
+                <meta http-equiv="Refresh" content="2;url=generarOficio.php" />
             <?php } else { ?>
-                <meta http-equiv="Refresh" content="3;url=login.php" />
+                <meta http-equiv="Refresh" content="2;url=login.php" />
             <?php } ?>
         </head>
         <body class="skin-black-light sidebar-mini sidebar-collapse">

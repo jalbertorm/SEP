@@ -6,7 +6,7 @@ session_destroy();
 <html>
     <head>
 <?php include ('sources/template/head.php'); ?>
-        <meta http-equiv="Refresh" content="3;url=login.php" />
+        <meta http-equiv="Refresh" content="2;url=login.php" />
     </head>
     <body class="skin-black-light sidebar-mini sidebar-collapse">
         <!-- Site wrapper -->
