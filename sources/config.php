@@ -11,7 +11,7 @@ define("MYSQL_NAME","sepv1");
 #Mexican debugger
 define("RESULTTRACE",true);
 
-$extensionesPermitidasIMG = array("jpg", "jpeg", "gif", "png", "bmp", "JPG", "JPEG", "GIF", "PNG", "BMP");
+$extensionesPermitidasIMG = array("pdf","jpg", "jpeg", "gif", "png", "bmp", "PDF","JPG", "JPEG", "GIF", "PNG", "BMP");
 
 define("encriptar",true);
 

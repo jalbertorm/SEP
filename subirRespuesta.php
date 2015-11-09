@@ -72,7 +72,7 @@ if ($_SESSION["Activa"] && $_GET) {
                                         </div>
                                     </div>
 
-                                    <form action="guardarRespuesta.php" method="post" enctype="multipart/form-data">
+                                    <form action="guardarRespuesta.php" method="post">
                                         <div class="box-body">
                                             <!--
                                             <form action="guardarRespuesta.php" method="post">
@@ -81,34 +81,16 @@ if ($_SESSION["Activa"] && $_GET) {
                                                 <!-- aqui cambiar el value, por lo que traeremos en PHP-->
                                                 <input type="hidden" id="idOficio" name="idOficio" value="<?php echo $idOficio; ?>">
                                                 <label for="exampleInputEmail1">Asunto: </label>
-                                                <input type="text" class="form-control" id="asunto" name="asunto"  placeholder="Asunto" required>
+                                                <input type="text" class="form-control" id="asunto" name="asunto" required placeholder="Asunto" required>
                                             </div>
+
                                             <div class="form-group">
-                                                <label for="exampleInputFile">Adjuntar Respuesta: </label>
-                                                <!-- <input type="file" class="black" id="imagen" name="imagen" /> -->
-                                                <input type="file"  name="imagen"  required/>
+                                                <label for="exampleInputFile">File input</label>
+                                                <input type="file" id="exampleInputFile">
+
                                             </div>
-                                            <label for="exampleInputEmail1">Redacción Adicional: </label>
-                                            <textarea placeholder="Redactar Respuesta" name="redaccion" required				
-                                                      style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; 
-                                                      border: 1px solid #dddddd; padding: 10px;" class="textareaResp"
-                                                      maxlength="3">
 
-                                            </textarea>
-
-
-                <!--                                            <textarea  id="text" name="redaccion" rows="10" cols="80" maxlength="25">
-
-                </textarea>-->
-
-
-                                            <!--
-                                            <textarea cols="40" rows="10" id="limite"></textarea>
-                                            <textarea class="textarea" placeholder="Redactar Respuesta" id="redaccion" name="redaccion" required				
-                                                      style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; 
-                                                      border: 1px solid #dddddd; padding: 10px;">
-                                            </textarea>
-                                            -->
+                                           
                                         </div><!-- /.box-body -->
                                         <div class="box-footer text-right">
                                             <button type="reset" class="btn btn-default">Limpiar</button>

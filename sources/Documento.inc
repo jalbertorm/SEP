@@ -54,7 +54,7 @@
 				exit("<center><h5 id='errorLogin'>ERROR. Tipo de archivo no v&aacute;lido, s&oacute;lo se permiten extensiones: ".implode(", ", $extensionesPermitidasIMG)."</h5></center>");
 			}
 		}
-		
+                		
 		function cambiarNombre()
 		{
 			$acento = array("&aacute;","&eacute;","&iacute;","&oacute;","&uacute;","&ntilde;","&Aacute;","&Eacute;","&Iacute;","&Oacute;","&Uacute;","&Ntilde;");

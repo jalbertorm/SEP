@@ -4,49 +4,37 @@ session_start();
 function tablaRespuesta() {
     include_once("Query.inc");
     $query = new Query();
-
     $regCupo = $query->select("r.idRespuesta idR, o.folio folio, r.asunto asunto, r.fecha fecha", "oficio o, respuesta r", "o.idOficio=r.oficio_idOficio");
-
     if ($regCupo) {
         $i = 0;
 
         echo "<table id='example1' class='table table-bordered table-striped'>";
         echo "<thead>";
         echo "<tr>";
-        echo "<th>FOLIO</th>";
+        echo "<th>N° DE OFICIO</th>";
         echo "<th>ASUNTO</th>";
         echo "<th>FECHA</th>";
-
-        /* HABILTANDO 1 */
         echo "<th>VER</th>";
         echo "<th>RE-ENVIAR</th>";
-        /* FIN HABILTANDO 1 */
-
-
         echo "</tr>";
         echo "</thead>";
         echo "<tbody>";
 
         foreach ($regCupo as $regC) {
-            /* $modulo=i%2; */
-            /* if($modulo==1){ */
             echo "<tr>";
-
             echo "<td>$regC->folio</td>";
             echo "<td>$regC->asunto</td>";
             echo "<td>$regC->fecha</td>";
             echo "<td><a href='redaccionRespuesta.php?id=$regC->idR'><i class='fa fa-clipboard' title='Ver Respuesta'></i></a></td>";
-            ?><td><a href=#generarRespuesta.php><i class='fa fa-share fa' title='generarRespuesta'></i></a></td><?php
+            ?><td><a href='reenviarRespuesta.php?idRespuesta=<?php echo $regC->idRespuesta; ?>' onClick="return confirm('¿Está seguro de reenviar la respuesta?');"><i class='fa fa-share fa' title='Re-enviar'></i></a></td><?php
+            
             echo "</tr>";
             echo "</tr>";
-
             $i++;
         }
 
         echo "</tbody>";
-        /* ANEXANDO EL TFOOT */
         echo "<tfoot>";
-        /* echo "<table id='example1' class='table table-bordered table-striped'>"; */
         echo "<thead>";
         echo "<tr>";
         echo "<th>N° DE OFICIO</th>";
@@ -57,27 +45,20 @@ function tablaRespuesta() {
         echo "</tr>";
         echo "</thead>";
         echo "</tfoot>";
-        /* FIN DEL TFOOT */
         echo "</table>";
     }
 }
 
 function redaccionRespuesta($id) {
-
-
     include_once("sources/Query.inc");
-
     $query = new Query();
-    $consulta = $query->select("redaccion", "respuesta", "idRespuesta=$id");
-
+    $consulta = $query->select("redaccion, archivoAdjunto", "respuesta", "idRespuesta=$id");
     if ($consulta) {
         foreach ($consulta as $c) {
             echo $c->redaccion;
+            echo"<br>";
+            echo "<td><a class='iframe' href='$c->archivoAdjunto' target='_blank'> ver PDF </</a></td>";
         }
     }
 }
-
-
-
-
 ?>
