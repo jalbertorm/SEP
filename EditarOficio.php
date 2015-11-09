@@ -1,8 +1,9 @@
 <?php
 session_start();
 include("sources/funciones.php");
-$plantilla= getPlantilla();
 if ($_SESSION["Activa"]) {
+    $idOficio = $_GET ['idOficio'];
+    $oficio = getOficio($idOficio);
     ?>
     <!--ESTE ARCHIVO ES EL FORMULARIO PARA EL PDF-->
     <!DOCTYPE html>
@@ -66,27 +67,28 @@ if ($_SESSION["Activa"]) {
                                 <!-- Default box -->
                                 <div class="box box-solid box-default">
                                     <div class="box-header with-border">
-                                        <h3 class="box-title">Redactar Oficio</h3>
+                                        <h3 class="box-title">Se Rescribira el oficio con Numero de Oficio: <?php echo $oficio['noOficio']; ?></h3>
                                         <div class="box-tools pull-right">
                                             <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                                         </div>
                                     </div>
                                     <div class="box-body">
 
-                                        <form action="guardarOficio.php" method="post">
+                                        <form action="guardarEOficio.php" method="post">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <img src="<?php echo $plantilla['logo']; ?>" width="100%">
+                                                    <img src="images/oficioHeader.PNG" width="100%">
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>
-                                                        <?php echo $plantilla['oficioNumero'];?> / 
-                                                        <input id="noOficio" name="noOficio" style="width: 40px" type="text" required>
+                                                        Oficio número SEP / DFSEPMEX /<font style=' color: #CC0000'> <?php echo $oficio['noOficio']; ?> </font>
+
+                                                        <input hidden="noOficio" id="noOficio" name="noOficio" value="<?php echo $oficio['noOficio']; ?>" />
                                                         /
-                                                        <input id="anio" name="anio" style="width: 40px" type="text" required>
+                                                        <input id="anio" name="anio" style="width: 40px" type="text" required value="<?php echo $oficio['anio']; ?>"/> 
                                                     </p>
                                                     <div id="rnoOficio"></div>
                                                 </div>
@@ -95,8 +97,8 @@ if ($_SESSION["Activa"]) {
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p style="text-align: right">
-                                                        <?php echo $plantilla['lugar']; ?>
-                                                        <input name="fecha" id="fecha" type="text" required>
+                                                        Toluca, México.,
+                                                        <input name="fecha" id="fecha" type="text" required value="<?php echo $oficio['fecha']; ?>">
                                                         .
                                                     </p>
                                                 </div>
@@ -188,35 +190,38 @@ if ($_SESSION["Activa"]) {
                                             </div>
 
                                             <br>
-                                          
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name="ciudadano" id="ciudadano" placeholder="Ciudadano(a)" required>
+                                                        <input type="text" class="form-control" name="ciudadano" id="ciudadano" value="<?php echo $oficio['ciudadano']; ?>" required/>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
                                             <br>
-                                          
+                                            
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
 
                                                         <textarea 
                                                             rows="6" cols="30" 
-                                                            class="textarea" placeholder="Asunto"					
+                                                            class="textarea" placeholder="Asunto" 
                                                             style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; 
                                                             border: 1px solid #dddddd; padding: 10px;"
                                                             name="asunto" required>
+                                                            
+                                                            <?php echo $oficio['asunto']; ?>
+                                                            
                                                         </textarea>
+                                                        
                                                         <div id="divAux"></div>
                                                         <div hidden="true">
-                                                            <input type="text" value="OK" id="inputAux" required>
+                                                            <input type="text" value="OK" id="inputAux" required />
                                                         </div>
                                                     </div>
                                                 </div>  
                                             </div>
+
 
                                             <br>
                                             <div class="row">
@@ -259,13 +264,14 @@ if ($_SESSION["Activa"]) {
                                                 </div>  
                                             </div>
 
+
                                             <br>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p style="font-size: 10px">
                                                         C.C.P Lic. Rubén Jesús Lara León.-  Coordinador General de Delegaciones Federales de la Secretaria de Educación pública.- Presente.<br>
                                                         Lic. Miguel Salcedo Hernández.-   Coordinador General de Atención Ciudadano(a).-
-                                                        <input placeholder="Referencia" name="referencia" style="width: 150px" type="text"required> 
+                                                        <input placeholder="Referencia" name="referencia" style="width: 150px" type="text"required value="<?php echo $oficio['referencia']; ?>"/> 
                                                     </p>                    
                                                 </div>  
                                             </div>
@@ -275,7 +281,7 @@ if ($_SESSION["Activa"]) {
                                                     <p style="font-size: 10px">
                                                         Lic. Edgar Israel Gutiérrez Paredes.- Jefe del Departamento de Vinculación y Apoyo institucional de la coordinación General de Delegaciones Federales.- SEP
                                                         <br>Folio: 
-                                                        <input placeholder="Folio" name="folio" style="width: 150px" type="text" required>
+                                                        <input placeholder="Folio" name="folio" style="width: 150px" type="text" required value="<?php echo $oficio['folio']; ?>"/>
                                                     </p>                    
                                                 </div>  
                                             </div>
@@ -284,7 +290,7 @@ if ($_SESSION["Activa"]) {
                                                 <div class="col-md-12">
                                                     <p style="font-size: 10px">
                                                         C.
-                                                        <input placeholder="Ciudadano(a)" id="ciudadanoFooter" style="width: 150px" type="text"><br>
+                                                        <input placeholder="Ciudadano(a)" id="ciudadanoFooter" style="width: 150px" type="text" value="<?php echo $oficio['ciudadano']; ?>" /><br>
                                                         GLM/arll*
                                                     </p>
                                                 </div>  
@@ -308,6 +314,7 @@ if ($_SESSION["Activa"]) {
                                             <input type="radio" name="confirmar" value="male">con firma <br>
                                             <input type="radio" name="confirmar" value="female">sin firma
 
+
                                             <br>
                                             <br>
                                             <br>
@@ -315,20 +322,11 @@ if ($_SESSION["Activa"]) {
 
                                             <p><b><big>Datos Del Ciudadano</big></b></p>
                                             <br>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" name="ciudadano" id="ciudadano" placeholder="Ciudadano(a)" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
                                             <br>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name="telCiudadano" id="telCiudadano" placeholder="Telefono: (722) 222-4444" required>
+                                                        <input type="text" class="form-control" name="telCiudadano" id="telCiudadano" placeholder="Telefono: (722) 222-4444" required value="<?php echo $oficio['telCiudadano']; ?>"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -339,7 +337,7 @@ if ($_SESSION["Activa"]) {
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <input type="email" class="form-control" name="mailCiudadano" id="mailCiudadano" placeholder="Email: ejemplo@ejemplo.com" required>
+                                                        <input type="email" class="form-control" name="mailCiudadano" id="mailCiudadano" placeholder="Email: ejemplo@ejemplo.com" required value="<?php echo $oficio['mailCiudadano']; ?>"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -443,7 +441,7 @@ if ($_SESSION["Activa"]) {
                 });
 
             </script>
-            
+
             <script>
                 $(document).ready(function () {
                     $("#ciudadano").keyup(function () {

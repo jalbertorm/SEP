@@ -25,7 +25,9 @@ $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"
 require("sources/Query.inc");
 $query = new Query();
 
-if ($query->insert("oficio", "noOficio, anio, fecha, ciudadano, asunto, referencia, folio, mailCiudadano, telCiudadano, status", "'$noOficio', '$anio', '$fecha','$ciudadano', '$asunto','$referencia', '$folio','$mailCiudadano', '$telCiudadano', 2")) {
+//if ($query->insert("oficio", "noOficio, anio, fecha, ciudadano, asunto, referencia, folio, mailCiudadano, telCiudadano, status", "'$noOficio', '$anio', '$fecha','$ciudadano', '$asunto','$referencia', '$folio','$mailCiudadano', '$telCiudadano', 2")) {
+if ($query->update("oficio", " anio='$anio', fecha='$fecha', ciudadano='$ciudadano', asunto='$asunto', referencia='$referencia', folio='$folio', mailCiudadano='$mailCiudadano', telCiudadano='$telCiudadano', status='2'", "noOficio=$noOficio" )) {
+    
     $respuesta = "<center><h1><span>Agregado correctamente</span></h1></center>";
     
 $html = '
@@ -63,7 +65,7 @@ $html = '
     <br>
     <br>
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; float: left;">
-        
+        '.$titulo.'<br>
         '.$nombre.'<br>
         '.$puesto.'<br>
         PRESENTE
