@@ -52,12 +52,19 @@ function tablaRespuesta() {
 function redaccionRespuesta($id) {
     include_once("sources/Query.inc");
     $query = new Query();
-    $consulta = $query->select("redaccion, archivoAdjunto", "respuesta", "idRespuesta=$id");
+    /* 
+      $consulta = $query->select("redaccion, archivoAdjunto", "respuesta", "idRespuesta=$id");
+     */
+    $consulta = $query->select("n.redaccionRespuestas notificacion, r.redaccion redaccion, r.archivoAdjunto adjunto", "respuesta r, rednotificacion n", "idRespuesta=$id");
     if ($consulta) {
         foreach ($consulta as $c) {
+            /*anexo */   echo $c->notificacion;
             echo $c->redaccion;
             echo"<br>";
-            echo "<td><a class='iframe' href='$c->archivoAdjunto' target='_blank'> ver PDF </</a></td>";
+            /*
+             echo "<td><a class='iframe' href='$c->archivoAdjunto' target='_blank'> ver PDF </</a></td>";
+             */
+            echo "<td><a class='iframe' href='$c->adjunto' target='_blank'> ver PDF </</a></td>";
         }
     }
 }
