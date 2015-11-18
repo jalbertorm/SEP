@@ -24,15 +24,16 @@ define("MYSQL_USER","josealberto_usu");
 #Password de la base de datos
 define("MYSQL_PASS","sep123456");
 #Nombre de la base de datos
-define("MYSQL_NAME","josealberto_sep");
+define("MYSQL_NAME","josealberto_sepv2");
 #Mexican debugger
 define("RESULTTRACE",true);
 
-$extensionesPermitidasIMG = array("jpg", "jpeg", "gif", "png", "bmp", "JPG", "JPEG", "GIF", "PNG", "BMP");
+$extensionesPermitidasIMG = array("pdf","jpg", "jpeg", "gif", "png", "bmp", "PDF","JPG", "JPEG", "GIF", "PNG", "BMP");
 
 define("encriptar",true);
  * 
  */
+
 
 /*
 //Conexion Simposio
@@ -47,7 +48,7 @@ define("MYSQL_NAME","onlghblo_sep");
 #Mexican debugger
 define("RESULTTRACE",true);
 
-$extensionesPermitidasIMG = array("jpg", "jpeg", "gif", "png", "bmp", "JPG", "JPEG", "GIF", "PNG", "BMP");
+$extensionesPermitidasIMG = array("pdf","jpg", "jpeg", "gif", "png", "bmp", "PDF","JPG", "JPEG", "GIF", "PNG", "BMP");
 
 define("encriptar",true);
  * 
@@ -66,7 +67,7 @@ define("MYSQL_NAME","ciscitto_sep");
 #Mexican debugger
 define("RESULTTRACE",true);
 
-$extensionesPermitidasIMG = array("jpg", "jpeg", "gif", "png", "bmp", "JPG", "JPEG", "GIF", "PNG", "BMP");
+$extensionesPermitidasIMG = array("pdf","jpg", "jpeg", "gif", "png", "bmp", "PDF","JPG", "JPEG", "GIF", "PNG", "BMP");
 
 define("encriptar",true);
 */

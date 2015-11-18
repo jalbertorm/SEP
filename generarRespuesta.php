@@ -1,8 +1,9 @@
 <?php
-session_start();
 include("sources/funciones.php");
-if ($_SESSION["Activa"] && $_GET) {
+if ($_SESSION["Activa"] && $_GET and $_SESSION["Tipo_usuario"] = "normal") {
     $idOficio = __($_GET['idOficio']);
+    $notificacionRespuesta = getRedNotificacionRespuestas();
+    $mailCiudadano = getMailCiudadanoRespuestas($idOficio);
     ?>
     <!DOCTYPE html>
     <html>
@@ -12,13 +13,10 @@ if ($_SESSION["Activa"] && $_GET) {
         <body class="skin-black-light sidebar-mini">
             <!-- Site wrapper -->
             <div class="wrapper">
-
                 <header class="main-header">
                     <?php include ('sources/template/header.php'); ?>
                 </header>
-
                 <!-- =============================================== -->
-
                 <!-- Left side column. contains the sidebar -->
                 <aside class="main-sidebar">
                     <!-- sidebar: style can be found in sidebar.less -->
@@ -33,7 +31,7 @@ if ($_SESSION["Activa"] && $_GET) {
                                 </a>
                                 <ul class="treeview-menu">
                                     <li><a href="generarOficio.php"><i class="fa fa-circle-o"></i> Redactar Oficio</a></li>
-                                    <li><a href="consultarOficio.php"><i class="fa fa-circle-o"></i> Oficios Enviados</a></li>
+                                    <li><a href="consultarOficio.php"><i class="fa fa-circle-o"></i> Oficios Registrados</a></li>
                                 </ul>
                             </li>
                             <li class="treeview active">
@@ -50,16 +48,12 @@ if ($_SESSION["Activa"] && $_GET) {
                     </section>
                     <!-- /.sidebar -->
                 </aside>
-
                 <!-- =============================================== -->
-
                 <!-- Content Wrapper. Contains page content -->
                 <div class="content-wrapper">
                     <?php include ('sources/template/titulo.php'); ?>
-
                     <!-- Main content -->
                     <section class="content">
-
                         <div class="row">
                             <!-- left column -->
                             <div class="col-md-10 col-md-offset-1">
@@ -71,44 +65,49 @@ if ($_SESSION["Activa"] && $_GET) {
                                             <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
                                         </div>
                                     </div>
-
                                     <form action="guardarRespuesta.php" method="post" enctype="multipart/form-data">
                                         <div class="box-body">
-                                            <!--
-                                            <form action="guardarRespuesta.php" method="post">
-                                            -->
                                             <div class="form-group">
-                                                <!-- aqui cambiar el value, por lo que traeremos en PHP-->
+                                                <label for="exampleInputEmail1">Email: </label>
+                                                <br>
+                                                <?php echo $mailCiudadano['mailCiudadano']; ?>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email Adicional (opcional): </label>
+                                                <br>
+                                                <input type="text" class="form-control" id="mailOpcional" name="mailOpcional"  placeholder="ejemplo@ejemplo.com (opcional)" onkeypress="return limitaMailAdicional(event, 65);" onkeyup="actualizaInfoMailAdicional(65)">
+                                                <div id="rMailAdicional"></div>
+                                                <div hidden="true">
+                                                    <input type="text" value="OK" id="inputAuxMailAdicional" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
                                                 <input type="hidden" id="idOficio" name="idOficio" value="<?php echo $idOficio; ?>">
                                                 <label for="exampleInputEmail1">Asunto: </label>
-                                                <input type="text" class="form-control" id="asunto" name="asunto"  placeholder="Asunto" required>
+                                                <input type="text" class="form-control" id="asunto" name="asunto"  placeholder="Asunto" required onkeypress="return limitaAsunto(event, 65);" onkeyup="actualizaInfoAsunto(65)">
+                                                <div id="rAsunto"></div>
+                                                <div hidden="true">
+                                                    <input type="text" value="OK" id="inputAuxAsunto" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Menjase: </label>
+                                                <br>
+                                                <?php echo $notificacionRespuesta['redaccionRespuestas']; ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputFile">Adjuntar Respuesta: </label>
-                                                <!-- <input type="file" class="black" id="imagen" name="imagen" /> -->
                                                 <input type="file"  name="imagen"  required/>
                                             </div>
                                             <label for="exampleInputEmail1">Redacción Adicional: </label>
                                             <textarea placeholder="Redactar Respuesta" name="redaccion" required				
                                                       style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; 
                                                       border: 1px solid #dddddd; padding: 10px;" class="textareaResp"
-                                                      maxlength="3">
-
-                                            </textarea>
-
-
-                <!--                                            <textarea  id="text" name="redaccion" rows="10" cols="80" maxlength="25">
-
-                </textarea>-->
-
-
-                                            <!--
-                                            <textarea cols="40" rows="10" id="limite"></textarea>
-                                            <textarea class="textarea" placeholder="Redactar Respuesta" id="redaccion" name="redaccion" required				
-                                                      style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; 
-                                                      border: 1px solid #dddddd; padding: 10px;">
-                                            </textarea>
-                                            -->
+                                                      maxlength="3"></textarea>
+                                            <div id="divAux"></div>
+                                            <div hidden="true">
+                                                <input type="text" value="OK" id="inputAux" required>
+                                            </div>
                                         </div><!-- /.box-body -->
                                         <div class="box-footer text-right">
                                             <button type="reset" class="btn btn-default">Limpiar</button>
@@ -127,7 +126,69 @@ if ($_SESSION["Activa"] && $_GET) {
             </div><!-- ./wrapper -->
 
             <?php include ('sources/template/scripts.php'); ?>
+            <script type="text/javascript">
+                function limitaMailAdicional(elEvento, maximoCaracteres) {
+                    var elemento = document.getElementById("mailOpcional");
+                    var evento = elEvento || window.event;
+                    var codigoCaracter = evento.charCode || evento.keyCode;
+                    if (codigoCaracter == 37 || codigoCaracter == 39) {
+                        return true;
+                    }
+                    if (codigoCaracter == 8 || codigoCaracter == 46) {
+                        return true;
+                    }
+                    else if (elemento.value.length >= maximoCaracteres) {
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+                function actualizaInfoMailAdicional(maximoCaracteres) {
+                    var elemento = document.getElementById("mailOpcional");
+                    var info = document.getElementById("rMailAdicional");
 
+                    if (elemento.value.length >= maximoCaracteres) {
+                        info.innerHTML = "<font style=' color: #CC0000'>Alcanzó el máximo número de caracteres permitido.</font>";
+                        $("#inputAuxMailAdicional").val("");
+                    }
+                    else {
+                        info.innerHTML = "";
+                        $("#inputAuxMailAdicional").val("OK");
+                    }
+                }
+                
+                function limitaAsunto(elEvento, maximoCaracteres) {
+                    var elemento = document.getElementById("asunto");
+                    var evento = elEvento || window.event;
+                    var codigoCaracter = evento.charCode || evento.keyCode;
+                    if (codigoCaracter == 37 || codigoCaracter == 39) {
+                        return true;
+                    }
+                    if (codigoCaracter == 8 || codigoCaracter == 46) {
+                        return true;
+                    }
+                    else if (elemento.value.length >= maximoCaracteres) {
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+                function actualizaInfoAsunto(maximoCaracteres) {
+                    var elemento = document.getElementById("asunto");
+                    var info = document.getElementById("rAsunto");
+
+                    if (elemento.value.length >= maximoCaracteres) {
+                        info.innerHTML = "<font style=' color: #CC0000'>Alcanzó el máximo número de caracteres permitido.</font>";
+                        $("#inputAuxAsunto").val("");
+                    }
+                    else {
+                        info.innerHTML = "";
+                        $("#inputAuxAsunto").val("OK");
+                    }
+                }
+            </script>
 
         </body>
     </html>

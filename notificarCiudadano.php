@@ -1,10 +1,10 @@
 <?php
-session_start();
 include("sources/funciones.php");
-if ($_SESSION["Activa"]) {
-$mailCiudadano=$_GET ['mailCiudadano'];    
+if ($_SESSION["Activa"] and $_SESSION["Tipo_usuario"] = "normal" and $_GET) {
+    $mailCiudadano = $_GET ['mailCiudadano'];
+    $idOficio = $_GET['idOficio'];
     ?>
-    
+
     <!DOCTYPE html>
     <html>
         <head>
@@ -27,14 +27,14 @@ $mailCiudadano=$_GET ['mailCiudadano'];
                         <!-- sidebar menu: : style can be found in sidebar.less -->
                         <ul class="sidebar-menu">
                             <li class="header">Menú principal</li>
-                            <li class="treeview active">
+                            <li class="treeview">
                                 <a href="#">
                                     <i class="fa fa-file-text"></i> <span>Oficios</span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li class="active"><a href="generarOficio.php"><i class="fa fa-circle-o"></i> Redactar Oficio</a></li>
-                                    <li><a href="consultarOficio.php"><i class="fa fa-circle-o"></i> Oficios Enviados</a></li>
+                                    <li><a href="generarOficio.php"><i class="fa fa-circle-o"></i> Redactar Oficio</a></li>
+                                    <li><a href="consultarOficio.php"><i class="fa fa-circle-o"></i> Oficios Registrados</a></li>
                                 </ul>
                             </li>
                             <li class="treeview">
@@ -66,46 +66,44 @@ $mailCiudadano=$_GET ['mailCiudadano'];
                                 <!-- Default box -->
                                 <div class="box box-solid box-default">
                                     <div class="box-header with-border">
-                                        <h3 class="box-title">Enviar Notificacion Al Ciudadano</h3>
+                                        <h3 class="box-title">Enviar Notificacion al Ciudadano</h3>
                                         <div class="box-tools pull-right">
                                             <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                                         </div>
                                     </div>
                                     <div class="box-body">
 
-                                            <form>
-                                                <div class="row">
-                                                        
-                                                    <div class="col-md-6 col-md-offset-3">
-                                                        
-                                                        <label>Email</label>
-                                                        <br>
-                                                            <?php echo $mailCiudadano ?>
-                                                        <br>
-                                                        <br>
-                                                        <label>Email A dicional (opcional)</label>
-                                                        <br>
-                                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                                        
-                                                    </div>
-                                                       
-                                                </div><!-- /.box-body -->
-                                                <br>
-                                                <br>
-                                                
-                                                <div class="box-footer text-right">
-                                                    <button type="reset" class="btn btn-default">Limpiar</button>
-                                                    &nbsp;
-                                                    <button type="submit" class="btn btn-default">Enviar</button>
-                                                </div><!-- /.box-footer-->
+                                        <form action="confirmaNotificarCiudadano.php" method="POST">
+                                            <div class="row">
+                                                <div class="col-md-6 col-md-offset-3">
+                                                    <label>Email</label>
+                                                    <br>
+                                                    <?php echo $mailCiudadano; ?>
+                                                    <input type="hidden" name="mail" value="<?php echo $mailCiudadano; ?>">
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-6 col-md-offset-3">
+                                                    <label>Email Adicional (opcional)</label>
+                                                    <br>
+                                                    <input type="email" class="form-control" name="mailOpcional" id="mailOpcional" placeholder="ejemplo@ejemplo.com">
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <br>
 
-
-
-                                            </form>  
-                                        </div>
-                                </div><!-- /.box -->
+                                            <div class="box-footer text-right">
+                                                <a class="btn btn-default" href="consultarOficio.php"  onClick="return confirm('¿Está seguro que desea cancelar?, No se guardará ningún cambio!');">Cancelar</a>
+                                                &nbsp;
+                                                <button type="submit" class="btn btn-default">Enviar</button>
+                                            </div><!-- /.box-footer-->
+                                            <input type="hidden" name="id" value="<?php echo $idOficio; ?>">
+                                            </div>
+                                        </form> 
+                                    </div><!-- /.box -->
+                                </div>
                             </div>
-                        </div>
                     </section><!-- /.content -->
                 </div><!-- /.content-wrapper -->
 

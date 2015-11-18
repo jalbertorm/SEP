@@ -1,26 +1,19 @@
 <?php
-session_start();
 include("sources/funciones.php");
-if ($_SESSION["Activa"]) {
-    //su codigo total
+if ($_SESSION["Activa"] and $_SESSION["Tipo_usuario"] = "normal") {
     ?>
     <!DOCTYPE html>
     <html>
         <head>
             <?php include ('sources/template/head.php'); ?>
-
-
         </head>
         <body class="skin-black-light sidebar-mini">
             <!-- Site wrapper -->
             <div class="wrapper">
-
                 <header class="main-header">
                     <?php include ('sources/template/header.php'); ?>
                 </header>
-
                 <!-- =============================================== -->
-
                 <!-- Left side column. contains the sidebar -->
                 <aside class="main-sidebar">
                     <!-- sidebar: style can be found in sidebar.less -->
@@ -35,7 +28,7 @@ if ($_SESSION["Activa"]) {
                                 </a>
                                 <ul class="treeview-menu">
                                     <li><a href="generarOficio.php"><i class="fa fa-circle-o"></i> Redactar Oficio</a></li>
-                                    <li><a href="consultarOficio.php"><i class="fa fa-circle-o"></i> Oficios Enviados</a></li>
+                                    <li><a href="consultarOficio.php"><i class="fa fa-circle-o"></i> Oficios Registrados</a></li>
                                 </ul>
                             </li>
                             <li class="treeview active">
@@ -52,16 +45,12 @@ if ($_SESSION["Activa"]) {
                     </section>
                     <!-- /.sidebar -->
                 </aside>
-
                 <!-- =============================================== -->
-
                 <!-- Content Wrapper. Contains page content -->
                 <div class="content-wrapper">
                     <?php include ('sources/template/titulo.php'); ?>
-
                     <!-- Main content -->
                     <section class="content">
-
                         <div class="row">
                             <!-- left column -->
                             <div class="col-md-8 col-md-offset-2">
@@ -76,29 +65,15 @@ if ($_SESSION["Activa"]) {
                                     <div class="box-body">
                                         <div class="form-group">                                                
                                             <div class="input-group input-group-sm col-md-6 col-md-offset-3">
-                                                <!--
-                                                <input type="hidden" id="idOficio" name="idOficio" value="1">
-                                                -->
                                                 <input type="text" class="form-control" name="nOficio" id="nOficio" required>
                                                 <span class="input-group-btn">
                                                     <a href="#" class="btn btn-block btn-default">Buscar</a>
                                                 </span>
                                             </div><!-- /input-group -->
                                         </div>
-
-
                                         <div class="form-group">
-                                            <!--<div id="rMail"></div> -->
-                                            <div class="input-group input-group-sm col-md-10 col-md-offset-1" id="tablaBuscarO">
-
-                                                <!-- aqui iria buscarOficio, si se trae de metodosLuz 
-                                                              buscarOficio();-->
-
-                                            </div>
+                                            <div class="input-group input-group-sm col-md-10 col-md-offset-1" id="tablaBuscarO"></div>
                                         </div>
-
-
-
                                         <div id="oficio" class="form-group"></div>
                                     </div><!-- /.box-body -->
                                     <div class="box-footer text-right">

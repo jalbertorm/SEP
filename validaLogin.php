@@ -47,7 +47,11 @@ if ($_POST) {
         <head>
             <?php include ('sources/template/head.php'); ?>
             <?php if ($login) { ?>
-                <meta http-equiv="Refresh" content="2;url=generarOficio.php" />
+                <?php if ($_SESSION["Tipo_usuario"] == "administrador") { ?>
+                    <meta http-equiv="Refresh" content="2;url=iAdmin.php" />
+                <?php }if ($_SESSION["Tipo_usuario"] == "normal") { ?>
+                    <meta http-equiv="Refresh" content="2;url=generarOficio.php" />
+                <?php } ?>
             <?php } else { ?>
                 <meta http-equiv="Refresh" content="2;url=login.php" />
             <?php } ?>
@@ -78,7 +82,7 @@ if ($_POST) {
                                 <!-- Default box -->
                                 <div class="box box-solid box-default">
                                     <div class="box-header with-border">
-                                        <h3 class="box-title">Title</h3>
+                                        <h3 class="box-title">Inicio de sesión</h3>
                                     </div>
                                     <div class="box-body text-center">
                                         <?php
@@ -101,15 +105,15 @@ if ($_POST) {
                     </section><!-- /.content -->
                 </div><!-- /.content-wrapper -->
 
-    <?php include ('sources/template/pie.php'); ?>
+                <?php include ('sources/template/pie.php'); ?>
 
             </div><!-- ./wrapper -->
 
-    <?php include ('sources/template/scripts.php'); ?>
+            <?php include ('sources/template/scripts.php'); ?>
         </body>
     </html>
     <?php
-    } else {
-        redireccionar();
-    }
+} else {
+    redireccionar();
+}
 ?>

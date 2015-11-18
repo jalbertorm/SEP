@@ -1,36 +1,35 @@
 <?php
 ob_start();
-session_start();
-//<!--ESTE ARCHIVO GUARDA EL REGISTRO Y CREA EL PDF-->
 include("sources/funciones.php");
-if($_SESSION["Activa"] && $_POST){
+if ($_SESSION["Activa"] and $_SESSION["Tipo_usuario"] = "normal" and $_POST) {
+    $plantilla = getPlantillaRobert();
 
-$noOficio = __($_POST["noOficio"]);
-$anio = __($_POST["anio"]);
-$fecha = __($_POST["fecha"]);
-$ciudadano = __($_POST["ciudadano"]);
-$asunto = __($_POST["asunto"]);
-$referencia = __($_POST["referencia"]);
-$folio = __($_POST["folio"]);
-$mailCiudadano = strtolower(__($_POST["mailCiudadano"]));
-$telCiudadano = __($_POST["telCiudadano"]);
-$confirmar = strtolower(__($_POST["confirmar"]));
+    $noOficio = __($_POST["noOficio"]);
+    $anio = __($_POST["anio"]);
+    $fecha = __($_POST["fecha"]);
+    $ciudadano = __($_POST["ciudadano"]);
+    $asunto = __($_POST["asunto"]);
+    $referencia = __($_POST["referencia"]);
+    $folio = __($_POST["folio"]);
+    $mailCiudadano = strtolower(__($_POST["mailCiudadano"]));
+    $telCiudadano = __($_POST["telCiudadano"]);
+    $conFirma = __($_POST["conFirma"]);
+    $destinatario = __($_POST["destinatario"]);
+    $redaccion = __($_POST["redaccion"]);
 
-$gracias = "Por lo anterior, solicito de no existir inconveniente, gire sus amables instrucciones al área 
-          Correspondiente a fin de brindar la atención que proceda a dicho requerimiento, rogando 
-          Respetuosamente sea tan gentil de enviar a esta Delegación el seguimiento del presente asunto.";
+    $datosDestinatario = getDatosDestinatario($destinatario);
+    $datosRedaccion = getDatosRedaccion($redaccion);
 
-$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+    $meses = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
 
-require("sources/Query.inc");
-$query = new Query();
+    require_once("sources/Query.inc");
+    $query = new Query();
 
-//if ($query->insert("oficio", "noOficio, anio, fecha, ciudadano, asunto, referencia, folio, mailCiudadano, telCiudadano, status", "'$noOficio', '$anio', '$fecha','$ciudadano', '$asunto','$referencia', '$folio','$mailCiudadano', '$telCiudadano', 2")) {
-if ($query->update("oficio", " anio='$anio', fecha='$fecha', ciudadano='$ciudadano', asunto='$asunto', referencia='$referencia', folio='$folio', mailCiudadano='$mailCiudadano', telCiudadano='$telCiudadano', status='2'", "noOficio=$noOficio" )) {
-    
-    $respuesta = "<center><h1><span>Agregado correctamente</span></h1></center>";
-    
-$html = '
+    if ($query->update("oficio", " anio='$anio', fecha='$fecha', ciudadano='$ciudadano', asunto='$asunto', referencia='$referencia', folio='$folio', mailCiudadano='$mailCiudadano', telCiudadano='$telCiudadano'", "noOficio=$noOficio")) {
+
+        $respuesta = "<center><h1><span>Agregado correctamente</span></h1></center>";
+
+        $html = '
 <style>
     td { 
         vertical-align: top; 
@@ -57,69 +56,161 @@ $html = '
 <div>
     <br>
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; float: left; width: 50%;">
-        Oficio número SEP/DFSEPMEX/'.$noOficio.'/'.$anio.'
+        Oficio número SEP/DFSEPMEX/' . $noOficio . '/' . $anio . '
     </p>
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; float: right; width: 45%; text-align: right;">
-        Toluca, México., '.date('d',strtotime($fecha)).' de '.$meses[date('n' ,strtotime($fecha))-1].' de '.date('Y',strtotime($fecha)).'.
+        Toluca, México., ' . date('d', strtotime($fecha)) . ' de ' . $meses[date('n', strtotime($fecha)) - 1] . ' de ' . date('Y', strtotime($fecha)) . '.
     </p>
     <br>
     <br>
-    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; float: left;">
-        '.$titulo.'<br>
-        '.$nombre.'<br>
-        '.$puesto.'<br>
-        PRESENTE
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; float: left; font-weight: bold;">
+        
+        ' . $datosDestinatario['titulo'] . '<br>
+        ' . $datosDestinatario['nombre'] . '<br>
+        ' . $datosDestinatario['puestoRn1'] . '<br>
+        ' . $datosDestinatario['puestoRn2'] . '<br>
+        ' . $datosDestinatario['rnPresente'] . '<br>
+            
     </p>
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; text-align: justify;">
-        '.$redaccion.'
+        ' . $datosRedaccion['texto'] . '
     </p>
     <table class="tabla" width="100%" border="1" cellpadding="10" cellspacing="0">
         <thead>
             <tr>
-                <td style="width: 32%"><b>CIUDADANO</b></td>
-                <td style="width: 68%"><b>ASUNTO</b></td>
+                <td style="width: 32%"><b>' . $plantilla['encabezadoCol1'] . '</b></td>
+                <td style="width: 68%"><b>' . $plantilla['encabezadoCol2'] . '</b></td>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>'.$ciudadano.'</td>
+                <td>' . $ciudadano . '</td>
                 <td>
-                    '.$asunto.'
+                    ' . $asunto . '
                 </td>
             </tr>
         </tbody>
     </table>
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; text-align: justify;">
-        Por lo anterior, solicito de no existir inconveniente, gire sus amables 
-        instrucciones al área correspondiente a fin de brindar la atención que proceda 
-        a dicho requerimiento, rogando respetuosamente sea tan gentil de enviar a esta 
-        Delegación el Seguimiento del presente asunto.
+        ' . $plantilla['despedidaRn1'] . '
         <br><br>
-        Sin otro particular, me reitero a sus órdenes.
-        <div style="background-image: url(images/firmaPrueba.png);
-                background-size: 20%;
+        ' . $plantilla['despedidaRn2'] . '
+        <div style="background-image: url(' . $plantilla['firma'] . ');
+                background-size: 40%;
                 background-repeat: no-repeat;">
-        ATENTAMENTE
+        ' . $plantilla['att'] . '
         <br>
-        SUFRAGIO EFECTIVO, NO REELECCIÓN
+        ' . $plantilla['sloganAtt'] . '
         <br><br><br><br>
-        MTRO. GUILLERMO LEGORRETA MARTÍNEZ
+        ' . $plantilla['encargadoAtt'] . '
         <br>
-        DELEGADO
+        ' . $plantilla['puestoAtt'] . '
         </div>
     </p>
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: 8px; text-align: justify;">
-        c.c.p. <b>Lic. Rubén Jésus Lara León</b>.- Coordinador General de Delegaciones Federales de la Secretaría de Educación Pública.- Presente.
+        ' . $plantilla['ccpRn1col1'] . ' <b>' . $plantilla['ccpRn1col2'] . '</b>' . $plantilla['ccpRn1col3'] . '
         <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Lic. Miguel Salcedo Hernández</b>.- Coordinador General de Atención Ciudadana.- '.$referencia.'
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>' . $plantilla['ccpRn2col1'] . '</b>' . $plantilla['ccpRn2col2'] . ' ' . $referencia . '
         <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Lic. Edgar Israel Gutiérrez Paredes</b>.- Jefe del Departamento de Vinculación y Apoyo Institucional de la Coordinación General de Delegaciones Federales.- SEP
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>' . $plantilla['ccpRn3col1'] . '</b>' . $plantilla['ccpRn3col2'] . '
         <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Folio</b>: '.$folio.'
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>' . $plantilla['rnFolio'] . '</b> ' . $folio . '
         <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>C</b>. '.$ciudadano.'.- Interesado(a)
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>' . $plantilla['ciudadanoCol1'] . '</b>. ' . $ciudadano . ' ' . $plantilla['ciudadanoCol2'] . '
         <br>
-        GML/arll*
+        ' . $plantilla['ccpRn6'] . '
+    </p>
+</div>
+';
+
+        $htmlSinFirma = '
+<style>
+    td { 
+        vertical-align: top; 
+    }
+    .tabla {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        text-align: justify;
+    }
+    .tabla td {
+        border-left: 0.1mm solid #000000;
+        border-right: 0.1mm solid #000000;
+        margin: 5px;
+        padding: 5px;
+    }
+    table thead td { 
+        background-color: #EEEEEE;
+        text-align: center;
+        border: 0.1mm solid #000000;
+        margin: 1px;
+        padding: 1px;
+    }
+</style>
+<div>
+    <br>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; float: left; width: 50%;">
+        Oficio número SEP/DFSEPMEX/' . $noOficio . '/' . $anio . '
+    </p>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; float: right; width: 45%; text-align: right;">
+        Toluca, México., ' . date('d', strtotime($fecha)) . ' de ' . $meses[date('n', strtotime($fecha)) - 1] . ' de ' . date('Y', strtotime($fecha)) . '.
+    </p>
+    <br>
+    <br>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; float: left; font-weight: bold;">
+        
+        ' . $datosDestinatario['titulo'] . '<br>
+        ' . $datosDestinatario['nombre'] . '<br>
+        ' . $datosDestinatario['puestoRn1'] . '<br>
+        ' . $datosDestinatario['puestoRn2'] . '<br>
+        ' . $datosDestinatario['rnPresente'] . '<br>
+            
+    </p>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; text-align: justify;">
+        ' . $datosRedaccion['texto'] . '
+    </p>
+    <table class="tabla" width="100%" border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <td style="width: 32%"><b>' . $plantilla['encabezadoCol1'] . '</b></td>
+                <td style="width: 68%"><b>' . $plantilla['encabezadoCol2'] . '</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>' . $ciudadano . '</td>
+                <td>
+                    ' . $asunto . '
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; text-align: justify;">
+        ' . $plantilla['despedidaRn1'] . '
+        <br><br>
+        ' . $plantilla['despedidaRn2'] . '
+        <div>
+        ' . $plantilla['att'] . '
+        <br>
+        ' . $plantilla['sloganAtt'] . '
+        <br><br><br><br>
+        ' . $plantilla['encargadoAtt'] . '
+        <br>
+        ' . $plantilla['puestoAtt'] . '
+        </div>
+    </p>
+    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 8px; text-align: justify;">
+        ' . $plantilla['ccpRn1col1'] . ' <b>' . $plantilla['ccpRn1col2'] . '</b>' . $plantilla['ccpRn1col3'] . '
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>' . $plantilla['ccpRn2col1'] . '</b>' . $plantilla['ccpRn2col2'] . ' ' . $referencia . '
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>' . $plantilla['ccpRn3col1'] . '</b>' . $plantilla['ccpRn3col2'] . '
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>' . $plantilla['rnFolio'] . '</b> ' . $folio . '
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>' . $plantilla['ciudadanoCol1'] . '</b>. ' . $ciudadano . ' ' . $plantilla['ciudadanoCol2'] . '
+        <br>
+        ' . $plantilla['ccpRn6'] . '
     </p>
 </div>
 ';
@@ -130,13 +221,13 @@ $html = '
 //==============================================================
 //include_once("sources/mpdf60/mpdf.php");
 
-include 'sources/mpdf60/mpdf.php';
+        include 'sources/mpdf60/mpdf.php';
 //------------------------------mLeft,mRight,mTop,mBottom,mHeader,mFooter
-$mpdf = new mPDF('c', 'Letter', '', '', 21, 21, 40, 22, 15, 11);
+        $mpdf = new mPDF('c', 'Letter', '', '', 21, 21, 40, 22, 15, 11);
 
-$mpdf->SetDisplayMode('fullpage');
+        $mpdf->SetDisplayMode('fullpage');
 
-$header = '
+        $header = '
 
 <div style="float: left; width: 50%;">
     <img src="images/logo.png" width="220">
@@ -155,7 +246,7 @@ $header = '
 </div>
 ';
 
-$footer = '
+        $footer = '
 <div align="center">
     <p style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 10px;">
         Av. Dr. Nicolás San Juan S/N, Parque Administrativo Cuauhtémoc, Col. Ex Hacienda La Magdalena, Toluca, Estado de México, C. P. 50010.
@@ -165,40 +256,31 @@ $footer = '
 </div>
 ';
 
-$mpdf->SetHTMLHeader($header);
-$mpdf->SetHTMLFooter($footer);
+        $mpdf->SetHTMLHeader($header);
+        $mpdf->SetHTMLFooter($footer);
 
-$mpdf->SetWatermarkImage('images/escudo.jpg', 0.15, 'P', 'F'); //ESTE ES EL CGIDOOOOOOOOOO
-$mpdf->showWatermarkImage = true;
-$mpdf->WriteHTML($html);
+        $mpdf->SetWatermarkImage('images/escudo.jpg', 0.15, 'P', 'F');
+        $mpdf->showWatermarkImage = true;
+        if ($conFirma == 'si') {
+            $mpdf->WriteHTML($html);
+        } elseif ($conFirma == 'no') {
+            $mpdf->WriteHTML($htmlSinFirma);
+        }
 
 
-$mpdf->Output('Oficios/Oficio_'.$noOficio.'.pdf',F);
-//$mpdf->Output();
+        $mpdf->Output('Oficios/Oficio_' . $noOficio . '.pdf', F);
 
-$mpdf->showWatermarkImage = true;
-    $mpdf->WriteHTML($html);
-    
-    
         $Aux = "correcto";
         pagAux($Aux);
-    
-exit;
-//    require_once("sources/dompdf/dompdf_config.inc.php");
-//    $dompdf = new DOMPDF();
-//    $dompdf->load_html(ob_get_clean());
-//    $dompdf->render();
-//    $pdf = $dompdf->output();
-//    $filename = 'Oficios/OficioNo' . $noOficio . '.pdf';
-//    file_put_contents($filename, $pdf);
-//    enviarOficio($noOficio, $mailCiudadano, $asunto);
-} else {
-    $Aux = "error";
-    pagAux($Aux);
-    //$respuesta = "<center><h1><p>Error Al Insertar</p></h1>></center>";
-}
 
-}else{
-    	redireccionar();
-	}
+        exit;
+        
+    } else {
+        $Aux = "error";
+        pagAux($Aux);
+        
+    }
+} else {
+    redireccionar();
+}
 ?>

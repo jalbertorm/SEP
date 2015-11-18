@@ -134,7 +134,12 @@ function eComprobante($folio,$mail){
 function rSesionActiva(){
     echo "<script language='JavaScript' type='text/javascript'>";
     echo "function redireccionar(){";
-    echo "location.href='generarOficio.php';}";
+    if($_SESSION["Tipo_usuario"] == "administrador"){
+        echo "location.href='iAdmin.php';}";
+    }
+    if($_SESSION["Tipo_usuario"] == "normal"){
+        echo "location.href='generarOficio.php';}";
+    }    
     echo "setTimeout ('redireccionar()', 1)";
     echo "</script>";
 }

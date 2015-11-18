@@ -1,8 +1,6 @@
 <?php 
-session_start(); 
 include("sources/funciones.php");
-if($_SESSION["Activa"]){
-
+if($_SESSION["Activa"] and $_SESSION["Tipo_usuario"] = "normal"){
 ?>
     <!DOCTYPE html>
     <html>
@@ -34,7 +32,7 @@ if($_SESSION["Activa"]){
                             </a>
                             <ul class="treeview-menu">
                                 <li ><a href="generarOficio.php"><i class="fa fa-circle-o"></i> Redactar Oficio</a></li>
-                                <li class="active"><a href="consultarOficio.php"><i class="fa fa-circle-o"></i> Oficios Enviados</a></li>
+                                <li class="active"><a href="consultarOficio.php"><i class="fa fa-circle-o"></i> Oficios Registrados</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
